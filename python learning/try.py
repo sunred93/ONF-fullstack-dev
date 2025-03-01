@@ -1,3 +1,5 @@
+
+# ────────────────────────────────────────────────────────────────
 #letter counter (8)
 word = input("enter a word: ").lower() #converts input to lowercase
 letter_counts = {} #creates an empty dictionary
@@ -10,5 +12,4 @@ for letter, count in letter_counts.items(): #loops through the dictionary
     print(f"{letter}: {count}") #prints the letter and the count
 if len(word) > 5:
         print("The word is long")
-
-
+# ────────────────────────────────────────────────────────────────

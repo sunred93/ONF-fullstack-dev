@@ -1,0 +1,107 @@
+[
+    {
+        "task": "buy groseries",
+        "due_date": "10.03.2025",
+        "completed": false
+    },
+    {
+        "task": "book doctor appointment",
+        "due_date": "15.03.2025",
+        "completed": false
+    },
+    {
+        "task": "pay electricity bill",
+        "due_date": "20.03.2025",
+        "completed": false
+    },
+    {
+        "task": "finish reading book",
+        "due_date": "25.03.2025",
+        "completed": false
+    },
+    {
+        "task": "call mom",
+        "due_date": "27.03.2025",
+        "completed": false
+    },
+    {
+        "task": "plan weekend trip",
+        "due_date": "30.03.2025",
+        "completed": false
+    },
+    {
+        "task": "schedule haircut",
+        "due_date": "05.04.2025",
+        "completed": false
+    },
+    {
+        "task": "exercise for 30 minutes",
+        "due_date": "07.04.2025",
+        "completed": false
+    },
+    {
+        "task": "water the plants",
+        "due_date": "12.04.2025",
+        "completed": false
+    },
+    {
+        "task": "clean the bathroom",
+        "due_date": "15.04.2025",
+        "completed": false
+    },
+    {
+        "task": "organize closet",
+        "due_date": "20.04.2025",
+        "completed": false
+    },
+    {
+        "task": "write a thank you letter",
+        "due_date": "23.04.2025",
+        "completed": false
+    },
+    {
+        "task": "meal prep for the week",
+        "due_date": "27.04.2025",
+        "completed": false
+    },
+    {
+        "task": "learn a new recipe",
+        "due_date": "30.04.2025",
+        "completed": false
+    },
+    {
+        "task": "check car tire pressure",
+        "due_date": "03.05.2025",
+        "completed": false
+    },
+    {
+        "task": "backup computer files",
+        "due_date": "07.05.2025",
+        "completed": false
+    },
+    {
+        "task": "fix leaky faucet",
+        "due_date": "10.05.2025",
+        "completed": false
+    },
+    {
+        "task": "research a new hobby",
+        "due_date": "15.05.2025",
+        "completed": false
+    },
+    {
+        "task": "declutter desk",
+        "due_date": "20.05.2025",
+        "completed": false
+    },
+    {
+        "task": "take out the trash",
+        "due_date": "25.05.2025",
+        "completed": false
+    },
+    {
+        "task": "replace light bulbs",
+        "due_date": "30.05.2025",
+        "completed": false
+    }
+]

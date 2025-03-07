@@ -1,0 +1,42 @@
+[
+    {
+        "task": "Add input validation",
+        "due_date": "Later",
+        "completed": false
+    },
+    {
+        "task": "Allow removing multiple tasks at once",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to edit a task",
+        "due_date": "Next",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to sort the task list",
+        "due_date": "Next",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to filter the task list",
+        "due_date": "Future",
+        "completed": false
+    },
+    {
+        "task": "Refactor the code for better organization",
+        "due_date": "Ongoing",
+        "completed": false
+    },
+    {
+        "task": "Add unit tests",
+        "due_date": "Ongoing",
+        "completed": false
+    },
+    {
+        "task": "Add command-line arguments",
+        "due_date": "Future",
+        "completed": false
+    }
+]

@@ -59,6 +59,9 @@ while True:
 
     choice = input("Enter your choice (1-6): ")
 
+    if choice not in ["1", "2", "3", "4", "5", "6"]:
+        print("Invalid choice. Please enter a number between 1 and 6. try again")
+
     if choice == "1":
         print("here is the list of tasks to do:")
         for index, task in enumerate(my_list):
@@ -66,13 +69,13 @@ while True:
                 f"{index}. task: {task['task']}, due date: {task['due_date']}, completed: {task['completed']}"
             )
 
-    elif choice == "2":
+    if choice == "2":
         new_task = input("enter new task: ")
         new_due_date = input("enter due date: ")
         my_list.append({"task": new_task, "due_date": new_due_date, "completed": False})
         print("task added successfully!")
 
-    elif choice == "3":
+    if choice == "3":
         indices_to_remove = input(
             "enter the tasks you want to remove (separated by commas): "
         )
@@ -91,7 +94,7 @@ while True:
             except IndexError:
                 print(f"invalid task index: {task_index}. skipping.")
 
-    elif choice == "4":
+    if choice == "4":
         task_index_str = input("enter the index of the task you want to mark as complete: ")
         try:
             task_index = int(task_index_str)
@@ -108,7 +111,7 @@ while True:
                 "invalid task index. '{task_index_str}' please enter a single number."
             )
 
-    elif choice == "5":
+    if choice == "5":
         print("completed tasks:")
         if not completed_tasks:
             print("no completed tasks.")
@@ -116,11 +119,10 @@ while True:
             for task in completed_tasks:
                 print(f"-{task['task']} (completed on:{task['completed_date']})")
 
-    elif choice == "6":
+    if choice == "6":
         print("goodbye!")
         save_tasks(my_list)  # Save tasks before quitting
         save_completed_tasks(completed_tasks)
         break  # Exit the loop
 
-    elif choice not in ["1", "2", "3", "4", "5", "6"]:
-        print("Invalid choice. Please enter a number between 1 and 6.")
+    

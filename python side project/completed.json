@@ -3,36 +3,36 @@
         "task": "make to do list",
         "due_date": "ASAP",
         "completed": true,
-        "completed_date": "2025-03-05 20:27:28.737018"
+        "completed_date": "2025-03-07 19:48:47.646145"
     },
     {
         "task": "Implement file saving/loading",
         "due_date": "ASAP",
         "completed": true,
-        "completed_date": "2025-03-05 20:27:47.453937"
+        "completed_date": "2025-03-07 19:49:24.886067"
     },
     {
         "task": "Add date/time handling (datetime module)",
         "due_date": "Later",
         "completed": true,
-        "completed_date": "2025-03-05 20:28:23.545956"
+        "completed_date": "2025-03-07 19:49:28.628981"
     },
     {
         "task": "Implement the completed tasks list",
         "due_date": "ASAP",
         "completed": true,
-        "completed_date": "2025-03-05 20:28:34.578970"
+        "completed_date": "2025-03-07 19:49:42.946422"
     },
     {
         "task": "Add the 'show completed tasks' option",
         "due_date": "ASAP",
         "completed": true,
-        "completed_date": "2025-03-05 20:28:43.845123"
+        "completed_date": "2025-03-07 19:50:27.279966"
     },
     {
         "task": "Handle errors when marking a task as complete",
         "due_date": "ASAP",
         "completed": true,
-        "completed_date": "2025-03-05 20:29:18.991022"
+        "completed_date": "2025-03-07 19:50:48.697926"
     }
 ]

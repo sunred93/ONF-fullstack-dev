@@ -1,0 +1,86 @@
+/* Global Reset - Ensure consistent styling across browsers */
+
+
+body {
+    font-size: 1rem;
+    min-height: 100vh; /* Make the body at least as tall as the viewport */
+     /* background from gradient backgrounds */
+     background: #4B79A1; /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #283E51, #4B79A1); /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     font: 1em sans-serif;
+    
+    
+}
+
+/* sizing the h1-h4 */
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 4rem;
+    gap: 2rem;
+}
+
+nav ul {
+    display: flex; /* Make the ul a flex container */
+    list-style: none; /* Remove bullet points */
+    gap: 2rem; /* Add space between the links */
+}
+
+.contact_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 4rem;
+    gap: 2rem;
+    
+    
+}
+
+
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+    gap: 1rem; /* Add space between the cards */
+    padding: 1rem; /* Add padding around the cards */
+    margin: 1rem;
+}
+
+.card {
+    width: auto;
+    border: 3px solid #555; /* Thicker border, dark gray color */
+    border-radius: 10px;
+    padding: 1rem; 
+    text-align: center;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+}

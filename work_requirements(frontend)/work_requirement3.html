@@ -3,39 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="a small webpage where I learn flexbox and form"
+    />
+    <link rel="icon" href="favicon.ico" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
+    <header role="banner">
       <h1>flex box and form practice</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-      </p>
+      <button id="openLoginDialog">Login</button>
     </header>
-    <nav>
-      <ul>
-        <li>
-          <a href="article">Home</a>
-        </li>
-        <li>
-          <a href="section">About</a>
-        </li>
-        <li>
-          <a href="div">Contact</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="contact_container">
-      <form>
-        <label for="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
-          required
-        />
+    <div class="nav_container">
+      <nav role="navigation">
+        <ul>
+          <li>
+            <a class="nav_link" id="home" href="article">Home</a>
+          </li>
+          <li>
+            <a class="nav_link" id="about" href="section">About</a>
+          </li>
+          <li>
+            <a class="nav_link" id="contact" href="div">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <dialog class="login-dialog" id="loginDialog">
+      <form role="form" method="dialog">
+        <h2>Login</h2>
         <label for="email">Email:</label>
         <input
           type="email"
@@ -53,12 +51,13 @@
           required
         />
         <button type="submit">Submit</button>
+        <button type="button" id="closeLoginDialog">Close</button>
       </form>
-    </div>
-    <main>
-      <article>
+    </dialog>
+    <main role="main">
+      <article role="article">
         <div class="cards">
-          <div class="card">
+          <div class="card" id="card_html">
             <h3>html</h3>
             <p>
               this is a card for <strong>importent</strong> <em>facts</em> about
@@ -69,7 +68,7 @@
               quos.
             </p>
           </div>
-          <div class="card">
+          <div class="card" id="card_css">
             <h3>css</h3>
             <p>
               this is a card for <strong>importent</strong> <em>facts</em> about
@@ -80,7 +79,7 @@
               quos.
             </p>
           </div>
-          <div class="card">
+          <div class="card" id="card_js">
             <h3>javascript</h3>
             <p>
               this is a card for <strong>importent</strong> <em>facts</em> about
@@ -91,12 +90,40 @@
               quos.
             </p>
           </div>
-          </div>
-        </div> <!-- Closing cards div -->
+        </div>
       </article>
     </main>
-    <footer>
+    <footer role="contactinfo">
       <h3>Contact</h3>
+      <div class="contact_container">
+        <form role="form">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>

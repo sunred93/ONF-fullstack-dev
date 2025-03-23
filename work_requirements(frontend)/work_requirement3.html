@@ -8,31 +8,31 @@
       content="a small webpage where I learn flexbox and form"
     />
     <link rel="icon" href="favicon.ico" />
-    <title>Document</title>
+    <title>Flexbox and Form Handling Practice</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header role="banner">
-      <h1>flex box and form practice</h1>
-      <button id="openLoginDialog">Login</button>
+    <header>
+      <h1>Flexbox and Form Handling Practice</h1>
+      <button id="openLoginDialog" aria-label="open login dialog">Login</button>
     </header>
     <div class="nav_container">
-      <nav role="navigation">
+      <nav>
         <ul>
           <li>
-            <a class="nav_link" id="home" href="article">Home</a>
+            <a class="nav_link" href="#">Home</a>
           </li>
           <li>
-            <a class="nav_link" id="about" href="section">About</a>
+            <a class="nav_link" href="#about">About</a>
           </li>
           <li>
-            <a class="nav_link" id="contact" href="div">Contact</a>
+            <a class="nav_link" href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
     </div>
     <dialog class="login-dialog" id="loginDialog">
-      <form role="form" method="dialog">
+      <form method="dialog">
         <h2>Login</h2>
         <label for="email">Email:</label>
         <input
@@ -54,49 +54,82 @@
         <button type="button" id="closeLoginDialog">Close</button>
       </form>
     </dialog>
-    <main role="main">
-      <article role="article">
+    <div class="picture_box">
+      <img
+        src="https://cdn.pixabay.com/photo/2025/02/28/20/02/ai-generated-9438277_1280.jpg"
+        alt="centered globe picture with ice landscape."
+      />
+    </div>
+    <main>
+      <article>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            Welcome to our practice page! This site is a demonstration of
+            <strong>HTML, CSS</strong>, and <strong>JavaScript</strong> skills,
+            focusing on flexbox layouts and form handling.
+          </p>
+          <p>
+            One of the key areas of focus in this project is mastering flexbox,
+            a powerful CSS layout module that makes it easy to create responsive
+            and adaptable designs. You'll see how flexbox is used throughout the
+            page to arrange elements in a clean and organized way.
+          </p>
+          <p>
+            Another important aspect is form handling. The login dialog and the
+            contact form demonstrate how to collect user input and potentially
+            process it using JavaScript.
+          </p>
+        </section>
         <div class="cards">
           <div class="card" id="card_html">
-            <h3>html</h3>
+            <h3>HTML</h3>
             <p>
-              this is a card for <strong>importent</strong> <em>facts</em> about
-              html
+              HTML (<em>HyperText Markup Language</em>) has been the backbone of
+              the web since its inception. It's a
+              <strong>markup language</strong>, not a programming language, used
+              to structure content.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
+              From simple text documents to complex web applications, HTML
+              defines the content and its organization.
             </p>
           </div>
           <div class="card" id="card_css">
-            <h3>css</h3>
+            <h3>CSS</h3>
             <p>
-              this is a card for <strong>importent</strong> <em>facts</em> about
-              css
+              CSS (<em>Cascading Style Sheets</em>) is essential for styling web
+              pages. It allows you to control the look and feel of your HTML
+              content, including layout, colors, and typography.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
+              This page uses <strong>flexbox</strong>, a powerful CSS layout
+              module, to create a responsive and flexible design.
             </p>
           </div>
           <div class="card" id="card_js">
-            <h3>javascript</h3>
+            <h3>JavaScript</h3>
             <p>
-              this is a card for <strong>importent</strong> <em>facts</em> about
-              javascript
+              JavaScript is a programming language that adds
+              <em>interactivity to web pages</em>. It can be used to validate
+              forms, create animations, and respond to user actions.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
+              On this page, JavaScript is used to handle the login form and
+              other interactive elements.
             </p>
           </div>
         </div>
       </article>
     </main>
-    <footer role="contactinfo">
-      <h3>Contact</h3>
+    <footer id="contact">
+      <h4>Contact</h4>
+
       <div class="contact_container">
-        <form role="form">
+        <p>
+          here you can subscribe to our newsletter and also leave some feedback.
+        </p>
+        <form id="contactForm">
           <label for="name">Name:</label>
           <input
             type="text"
@@ -104,23 +137,58 @@
             name="name"
             placeholder="Enter your name"
             required
+            minlength="2"
+            maxlength="50"
           />
-          <label for="email">Email:</label>
+          <label for="contactEmail" id="emailLabel">Email:</label>
           <input
             type="email"
-            id="email"
+            id="contactEmail"
             name="email"
             placeholder="Enter your email"
             required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
           />
-          <label for="password">Password:</label>
+
+          <label for="phoneNumber" id="phoneLabel"> Phone Number:</label>
           <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            required
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Enter your phone number"
           />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter your message"
+          ></textarea>
+          <label for="newsletter">Subscribe to our newsletter:</label>
+          <input
+            type="checkbox"
+            id="newsletter"
+            name="newsletter"
+            value="yes"
+          />
+
+          <p>Preferred contact method:</p>
+          <input
+            type="radio"
+            id="emailContact"
+            name="contactMethod"
+            value="email"
+            checked
+          />
+          <label for="emailContact">Email</label>
+
+          <input
+            type="radio"
+            id="phoneContact"
+            name="contactMethod"
+            value="phone"
+          />
+          <label for="phoneContact">Phone</label>
           <button type="submit">Submit</button>
         </form>
       </div>

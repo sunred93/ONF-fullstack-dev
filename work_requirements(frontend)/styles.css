@@ -1,171 +1,256 @@
+/* styles.css */
 :root {
-    --base-font-size: 16px; /* Default font size */
-    --primary-color: #a1c4fd;
-    --secondary-color: #c2e9fb;
-    --border-color: #555;
-    --button-color: #4CAF50;
-  }
-  
-  body {
-    font-size: 1rem; /* Base font size */
-    min-height: 100vh;
-    background: linear-gradient(to right, #283E51, #4B79A1);
-    font-family: sans-serif;
-  }
-  
-  /* Scalable headings using clamp */
-  h1 {
-    font-size: clamp(3rem, 5vw, 5rem); /* Adjust based on viewport width */
-  }
-  
-  h2 {
-    font-size: clamp(2rem, 3vw, 3rem);
-  }
-  
-  h3 {
-    font-size: clamp(1.5rem, 2vw, 2rem);
-  }
-  
-  h4 {
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
-  }
-  
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
+  --base-font-size: 16px;
+  --primary-color: #a1c4fd;
+  --secondary-color: #c2e9fb;
+  --border-color: #555;
+  --button-color: #4caf50;
+}
 
-  #openLoginDialog{
-    border: 2px solid var(--border-color);
-    padding: 0.75rem 1rem; /* Use rem for padding */
-    border-radius: 0.5rem;
-    background: var(--primary-color);
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 1.5rem; /* Use rem for consistent gap */
-    padding: 1rem;
-  }
-  
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-    padding: 0;
-  }
-  
-  .nav_link {
-    border: 2px solid var(--border-color);
-    padding: 0.75rem 1rem; /* Use rem for padding */
-    border-radius: 0.5rem;
-    background: var(--primary-color);
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .nav_link:hover {
-    background-color: darken(var(--primary-color), 10%);
-  }
-  
-  /* Dialog Styles */
+body {
+  font-size: 1rem;
+  min-height: 100vh;
+  background: linear-gradient(to right, #283e51, #4b79a1);
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* Scalable headings */
+h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+}
+h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+h3 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+h4 {
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+}
+
+/* Flexbox Layouts */
+header,
+nav,
+nav ul,
+.picture_box,
+.cards,
+.card,
+footer,
+.contact_container,
+.login-dialog form {
+  display: flex;
+}
+
+header {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+nav {
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  gap: 1rem;
+}
+
+.picture_box {
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cards {
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  gap: 1rem;
+}
+
+.card {
+  width: 250px;
+  min-height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  justify-content: center; /* Center the contact form horizontally */
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.contact_container,
+.login-dialog form {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Links and Buttons */
+#openLoginDialog,
+.nav_link,
+.contact_container button[type="submit"],
+.login-dialog button[type="submit"],
+.login-dialog button[type="button"] {
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--primary-color);
+  text-decoration: none;
+  color: #000;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#openLoginDialog:hover,
+.nav_link:hover,
+.contact_container button[type="submit"]:hover,
+.login-dialog button[type="submit"]:hover,
+.login-dialog button[type="button"]:hover {
+  background-color: #8eb0e0;
+}
+
+.contact_container button[type="submit"]:hover,
+.login-dialog button[type="submit"]:hover,
+.login-dialog button[type="button"]:hover {
+  background-color: #367c39;
+}
+
+/* Images */
+.picture_box img {
+  border: 3px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-image-slice: 1;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dialog Styles */
 .login-dialog {
   border: 2px solid var(--border-color);
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: var(--primary-color);
   max-width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.login-dialog form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .login-dialog form h2 {
-    text-align: center;
-    margin: 0 0 1rem 0;
-  }
-  
-  .login-dialog label {
-    font-weight: bold;
-  }
-  
-  .login-dialog input[type="email"],
-  .login-dialog input[type="password"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-  }
-  
-  .login-dialog button[type="submit"] {
-    background-color: var(--button-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-dialog button[type="submit"]:hover {
-    background-color: darken(var(--button-color), 10%);
-  }
-  
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 1rem;
-  }
-  
-  .card {
-    width: 100px auto;
-    border: 3px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-align: center;
-    background-image: linear-gradient(120deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  }
+.login-dialog form h2 {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
 
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    flex-direction: column;
-    
-  }
-  
-  
-  .contact_container {
-    display: flex;
-    align-items: center;
-    border: 2px solid var(--border-color);
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    background: var(--primary-color);
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-  }
+.login-dialog label {
+  font-weight: bold;
+}
+
+.login-dialog input[type="email"],
+.login-dialog input[type="password"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+/* About Section Styling */
+#about {
+  border: 3px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  background-image: linear-gradient(
+    120deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  margin: 1rem;
+}
+
+#about p {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto; /* Shorthand for margin-left and margin-right */
+  line-height: 1.6;
+}
+
+/* Card Styling */
+.card {
+  border: 3px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  background-image: linear-gradient(
+    120deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Form Styling */
+.contact_container {
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--primary-color);
+  text-decoration: none;
+  color: #000;
+  transition: background-color 0.3s ease;
+  width: 80%; /* Make the form wider */
+  max-width: 600px; /* But not too wide */
+  padding: 1rem; /* Add padding */
+}
+
+.contact_container label {
+  font-weight: bold;
+  display: block;
+}
+
+.contact_container input[type="text"],
+.contact_container input[type="email"],
+.contact_container input[type="tel"],
+.contact_container textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 100%; /* Make input fields take full width */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.contact_container input[type="checkbox"],
+.contact_container input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.contact_container p {
+  margin: 0;
+}
+
+/* Focus Styles */
+.login-dialog input[type="email"]:focus,
+.login-dialog input[type="password"]:focus,
+.contact_container input[type="text"]:focus,
+.contact_container input[type="email"]:focus,
+.contact_container textarea:focus {
+  outline: 2px solid var(--button-color);
+  box-shadow: 0 0 5px var(--button-color);
+}

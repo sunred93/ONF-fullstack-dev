@@ -1,0 +1,72 @@
+[
+    {
+        "task": "make to do list",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Implement file saving/loading",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Add date/time handling (datetime module)",
+        "due_date": "Later",
+        "completed": false
+    },
+    {
+        "task": "Add input validation",
+        "due_date": "Later",
+        "completed": false
+    },
+    {
+        "task": "Implement the completed tasks list",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Add the 'show completed tasks' option",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Allow removing multiple tasks at once",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Handle errors when marking a task as complete",
+        "due_date": "ASAP",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to edit a task",
+        "due_date": "Next",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to sort the task list",
+        "due_date": "Next",
+        "completed": false
+    },
+    {
+        "task": "Add a feature to filter the task list",
+        "due_date": "Future",
+        "completed": false
+    },
+    {
+        "task": "Refactor the code for better organization",
+        "due_date": "Ongoing",
+        "completed": false
+    },
+    {
+        "task": "Add unit tests",
+        "due_date": "Ongoing",
+        "completed": false
+    },
+    {
+        "task": "Add command-line arguments",
+        "due_date": "Future",
+        "completed": false
+    }
+]

@@ -1,0 +1,268 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arimo', sans-serif;
+    /* Default font */
+    background-color: #F7F2DE;
+    /* Primary Background */
+    color: #0B0A08;
+    /* Text & Interface */
+}
+
+/* Header Styles (Common to both pages) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-family: 'Frank Ruhl Libre', serif;
+    /* Logo Font */
+    font-weight: 300;
+    font-size: 75px;
+    /* Mobile FRAM size */
+}
+
+nav .menu-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Menu Panel Styles (Hidden by default) */
+.menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    /* Secondary Background */
+    transform: translateX(-100%);
+    /* Hide off-screen initially */
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-panel.open {
+    transform: translateX(0);
+    /* Show the menu */
+}
+
+.close-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-content {
+    padding: 90px 20px;
+}
+
+.menu-content .fram-heading {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: 75px;
+    margin-bottom: 16px;
+}
+
+.menu-content p {
+    font-size: 16px;
+}
+
+.menu-content ul {
+    list-style: none;
+    margin-top: 45px;
+}
+
+.menu-content ul li {
+    margin-bottom: 45px;
+}
+
+.menu-content ul li a {
+    text-decoration: none;
+    color: #0B0A08;
+    font-size: 24px;
+}
+
+/* Landing Page Styles */
+.landing-page .hero {
+    /* Background image will be added here */
+    background-image: url('your-image-url.jpg');
+    /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.landing-page .hero-content {
+    /* Styles for the text within the hero section */
+}
+
+.landing-page .hero .fram-text {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: 75px;
+    color: #FFFFFF;
+}
+
+.landing-page .hero .header-text {
+    font-family: 'Arimo', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* Product Page Styles */
+.product-page .product-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-page .product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-page .product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-page .product-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Chatbot Section Styles (Potentially on both pages) */
+.chatbot-section {
+    padding: 20px;
+}
+
+.chatbot {
+    border: 1px solid #ccc;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.chatbot-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chatbot-messages {
+    padding: 10px;
+    min-height: 100px;
+    /* Adjust as needed */
+}
+
+.chatbot-message {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.chatbot-input {
+    display: flex;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px;
+}
+
+.chatbot-input button {
+    background-color: #DC4131;
+    /* Red */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Hover States */
+button {
+    background-color: #DC4131;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #AE2E21;
+    /* Darker Red on Hover */
+}
+
+.text-button {
+    background: none;
+    color: #0B0A08;
+    padding: 0;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+}
+
+.icon-button {
+    opacity: 1;
+}
+
+.icon-button:hover {
+    opacity: 0.4;
+}
+
+/* Desktop Styles (Media Query) */
+@media (min-width: 768px) {
+    .logo {
+        font-size: 200px;
+        /* Desktop FRAM size */
+    }
+
+    .landing-page .hero .fram-text {
+        font-size: 200px;
+    }
+
+    .landing-page .hero .header-text {
+        font-size: 36px;
+    }
+
+    .menu-content .fram-heading {
+        font-size: 200px;
+        margin-bottom: 24px;
+    }
+
+    .menu-content ul li a {
+        font-size: 36px;
+    }
+}

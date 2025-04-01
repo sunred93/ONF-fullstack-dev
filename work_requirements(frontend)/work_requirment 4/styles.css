@@ -3,6 +3,9 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .container {
@@ -13,8 +16,20 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+.completed-tasks-container{
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
     text-align: center;
     color: #333;
 }
@@ -43,12 +58,13 @@ h1 {
     margin-left: 10px;
 }
 
-#todo-list {
+#todo-list,
+#completed-list { /* Apply to both lists */
     list-style-type: none;
     padding: 0;
 }
 
-.todo-item {
+.todo-item { /* Apply to both lists */
     display: flex;
     align-items: center;
     padding: 10px;
@@ -58,16 +74,26 @@ h1 {
     border-radius: 3px;
 }
 
-.todo-text {
+.todo-text { /* Apply to both lists */
     flex-grow: 1;
     margin-right: 10px;
 }
 
-.delete-button {
+.delete-button,
+.complete-button {
     background-color: #f44336;
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+.complete-button {
+    background-color: #2196F3;
+}
+
+.completed-tasks-container {
+    margin-top: 20px;
 }

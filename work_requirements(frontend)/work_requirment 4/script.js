@@ -1,100 +1,132 @@
-let todos = [
-    {id: 1, text: "Learn JavaScript"},
-    {id: 2, text: "Build a to-do app"},
-    {id: 3, text: "Master DOM manipulation"}
-];
-let todoList = document.getElementById("todo-list")
-let todoInput = document.getElementById("todo-input")
-let addButton = document.getElementById("add-button")
+// Variables
+let todos = [];
+let todoList = document.getElementById("todo-list");
+let todoInput = document.getElementById("todo-input");
+let addButton = document.getElementById("add-button");
+let completedList = document.getElementById("completed-list");
 
+// Initial setup (load data and render)
+loadTodosFromLocalStorage();
+renderTodos();
 
-// TODO: Select and store references to the necessary DOM elements: check
-// - todoList: the <ul> element to contain the todo items: Check
-// - todoInput: the input field for new todos: check
-// - addButton: the button to add new todos: check
-
-// Create todo item element
-function createToDoElement(todo){
-  const listitem = document.createElement("li")
-  listitem.id = "todo-item-${todo.id}";
-  listitem.classlist.add("todo-item")
-  const textspan = document.createElement("span")
-  textspan.textContent = todo.text;
-  const deletebutton = document.createElement("button");
-  deletebutton.textContent = "delete";
-  deletebutton.classList.add("delete-button");
-  deletebutton.addEventListener("click", function(event){
-                                    deleteTodo(todo.id);
-                                });
-  listitem.appendChild(textspan);
-  listitem.appendChild(deletebutton);
-  return listitem;
-  
-}  
-
-    // TODO: Implement this function
-    // 1. Create a new <li> element
-    // 2. Add the 'todo-item' class to the <li>
-    // 3. Create a <span> for the todo text
-    // 4. Set the span's text content to todo.text
-    // 5. Create a delete button
-    // 6. Add a click event listener to the delete button that calls deleteTodo(todo.id)
-    // 7. Append the span and delete button to the <li>
-    // 8. Return the <li> element
-
-// Render todos
-function renderTodos() {
-    todoList.innerHTML = "";
-    todos.forEach(todo => { ... })
-        const li = document.createElement("li");
-        li.textContent = todo;
-        
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", () => {
-            todos.splice(index, 1);
-            renderTodos();
-        });
-        li.appendChild(deleteButton);
-        todoList.appendChild(li);
-    };
-    // TODO: Implement this function
-    // 1. Clear the existing list
-    // 2. Loop through the todos array
-    // 3. For each todo, call createTodoElement(todo) and append the result to the todo list
+// Helper functions
+function createDeleteButton(todoId) {
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "delete";
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", () => {
+        deleteTodo(todoId);
+    });
+    return deleteButton;
 }
 
-// Add todo
-function addTodo() {
-    todoForm.addEventListener("submit", function(event){
-        event.preventDefault();
-        const newTodo = todoInput.value.trim();
-        if (newTodo) {
-            todos.push(newTodo);
-            todoInput.value = "";
-            renderTodos();
+function createToDoElement(todo) {
+    const listItem = document.createElement("li");
+    listItem.id = `todo-item-${todo.id}`;
+    listItem.classList.add("todo-item");
+
+    const todoTextSpan = document.createElement("span");
+    todoTextSpan.textContent = todo.text;
+
+    const deleteButton = createDeleteButton(todo.id);
+
+    // Create the complete button
+    const completeButton = document.createElement("button");
+    completeButton.textContent = todo.completed ? "Undo" : "Done"; // Set text based on completed state
+    completeButton.classList.add("complete-button");
+    completeButton.addEventListener("click", () => {
+        toggleComplete(todo.id);
+    });
+
+    listItem.appendChild(todoTextSpan);
+    listItem.appendChild(deleteButton);
+    listItem.appendChild(completeButton); // Append the complete button
+
+    return listItem;
+}
+
+// Local Storage functions
+function loadInitialTodos() {
+    const initialTodos = [
+        { id: 1, text: "Learn JavaScript", completed: false }, 
+        { id: 2, text: "Build a to-do app", completed: false }, 
+        { id: 3, text: "Master DOM manipulation", completed: false } 
+    ];
+    localStorage.setItem("todos", JSON.stringify(initialTodos));
+}
+
+function loadTodosFromLocalStorage() {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+        todos = JSON.parse(storedTodos);
+    } else {
+        loadInitialTodos();
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+}
+
+function saveTodosToLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Render function
+function renderTodos() {
+    // Clear the existing lists
+    while (todoList.firstChild) {
+        todoList.removeChild(todoList.firstChild);
+    }
+    while (completedList.firstChild) {
+        completedList.removeChild(completedList.firstChild);
+    }
+
+    const todoFragment = document.createDocumentFragment();
+    const completedFragment = document.createDocumentFragment();
+
+    todos.forEach(todo => {
+        const listItem = createToDoElement(todo);
+        if (todo.completed) {
+            completedFragment.appendChild(listItem);
+        } else {
+            todoFragment.appendChild(listItem);
         }
     });
-    // TODO: Implement this function
-    // 1. Get the text from the input field
-    // 2. If the text is not empty:
-    //    a. Create a new todo object with a unique id and the input text
-    //    b. Add the new todo object to the todos array
-    //    c. Clear the input field
-    //    d. Call renderTodos() to update the display
+    todoList.appendChild(todoFragment);
+    completedList.appendChild(completedFragment);
 }
 
-// Delete todo
+// Toggle complete
+function toggleComplete(id) {
+    const todo = todos.find(todo => todo.id === id);
+    if (todo) {
+        todo.completed = !todo.completed; // Toggle the completed state
+        saveTodosToLocalStorage();
+        renderTodos();
+    }
+}
+
+// CRUD functions (create,read,update and delete)
+function addTodo() {
+    const newTodo = todoInput.value.trim();
+    if (newTodo) {
+        const newId = todos.length > 0 ? Math.max(...todos.map(t => t.id)) + 1 : 1;
+        todos.push({ id: newId, text: newTodo, completed: false }); // Add completed property
+        todoInput.value = "";
+        saveTodosToLocalStorage();
+        renderTodos();
+    }
+}
+
 function deleteTodo(id) {
-    // TODO: Implement this function
-    // 1. Remove the todo with the given id from the todos array
-    // 2. Call renderTodos() to update the display
+    todos = todos.filter(todo => todo.id !== id);
+    saveTodosToLocalStorage();
+    renderTodos();
 }
 
-// TODO: Add a click event listener to the add button that calls addTodo
+// Event listeners
+addButton.addEventListener("click", addTodo);
 
-// TODO: Add a keypress event listener to the input field 
-// that calls addTodo when the Enter key is pressed
-
-// Initial render
-renderTodos();
+todoInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        addTodo();
+    }
+});

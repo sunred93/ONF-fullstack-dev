@@ -83,6 +83,13 @@ header {
   font-weight: bold;
 }
 
+/* utility class */
+.flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero {
   background-size: cover;
   background-position: center;
@@ -94,15 +101,17 @@ header {
   text-align: center;
   margin-top: 68px; /* Adds a margin to the top, to make space for the header */
   height: 1200px;
+  background-image: url("pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  position: relative;
 
   .hero-content {
     padding: 20px;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
+
     h1 {
       font-family: "Frank Ruhl Libre", serif;
       font-weight: 300;
@@ -125,11 +134,7 @@ header {
   }
 }
 
-.Shop-ask-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+.shop-ask-container {
   .column {
     display: flex;
     flex: 1;

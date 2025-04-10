@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ONF Movies - Edit {{ movie.title }}</title> <!-- Dynamic title -->
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/app.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>ONF Movies</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('new_movie') }}">New Movie</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>Edit Movie: {{ movie.title }}</h2> <!-- Dynamic heading -->
+
+      <form
+        action="{{ url_for('update_movie', movie_id=movie.id) }}"
+        method="POST"
+      >
+        <div>
+          <label for="title">Movie Title:</label>
+          <!-- Set value dynamically -->
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{ movie.title }}"
+            required
+          />
+        </div>
+        <div>
+          <label for="year">Release Year:</label>
+          <!-- Set value dynamically -->
+          <input
+            type="number"
+            id="year"
+            name="year"
+            value="{{ movie.year }}"
+            min="1888"
+            required
+          />
+        </div>
+        <div>
+          <label for="genre">Genre:</label>
+          <select id="genre" name="genre" required>
+            <!-- Add 'selected' attribute dynamically -->
+            <option value="Action" {% if movie.genre == 'Action' %}selected{% endif %}>Action</option>
+            <option value="Action/Comedy" {% if movie.genre == 'Action/Comedy' %}selected{% endif %}>Action/Comedy</option>
+            <option value="Comedy" {% if movie.genre == 'Comedy' %}selected{% endif %}>Comedy</option>
+            <option value="Comedy/Horror" {% if movie.genre == 'Comedy/Horror' %}selected{% endif %}>Comedy/Horror</option>
+            <option value="Comedy/Mockumentary" {% if movie.genre == 'Comedy/Mockumentary' %}selected{% endif %}>Comedy/Mockumentary</option>
+            <option value="Comedy/Sci-Fi" {% if movie.genre == 'Comedy/Sci-Fi' %}selected{% endif %}>Comedy/Sci-Fi</option>
+            <option value="Drama" {% if movie.genre == 'Drama' %}selected{% endif %}>Drama</option>
+            <option value="Fantasy/Adventure" {% if movie.genre == 'Fantasy/Adventure' %}selected{% endif %}>Fantasy/Adventure</option>
+            <option value="Horror" {% if movie.genre == 'Horror' %}selected{% endif %}>Horror</option>
+            <option value="Romance" {% if movie.genre == 'Romance' %}selected{% endif %}>Romance</option>
+            <option value="Sci-Fi" {% if movie.genre == 'Sci-Fi' %}selected{% endif %}>Sci-Fi</option>
+          </select>
+        </div>
+
+        <br /><br />
+
+        <h3>Credits</h3>
+        <div id="credits">
+          <!-- Loop through existing credits -->
+          {% for credit in movie.credits %}
+          <div class="credit">
+            <label for="name_{{ loop.index0 }}">Name:</label>
+            <!-- Use consistent naming 'credits' and set value -->
+            <input
+              type="text"
+              id="name_{{ loop.index0 }}"
+              name="credits[{{ loop.index0 }}][name]"
+              value="{{ credit.name }}"
+            />
+            <label for="role_{{ loop.index0 }}">Role:</label>
+            <!-- Use consistent naming 'credits' and set value -->
+            <input
+              type="text"
+              id="role_{{ loop.index0 }}"
+              name="credits[{{ loop.index0 }}][role]"
+              value="{{ credit.role }}"
+            />
+          </div>
+          {% endfor %}
+          <!-- Add a few empty slots for adding new credits easily -->
+          {% set existing_credits = movie.credits|length %}
+          {% for i in range(existing_credits, existing_credits + 5) %}
+           <div class="credit">
+            <label for="name_{{ i }}">Name:</label>
+            <input
+              type="text"
+              id="name_{{ i }}"
+              name="credits[{{ i }}][name]"
+              value=""
+            />
+            <label for="role_{{ i }}">Role:</label>
+            <input
+              type="text"
+              id="role_{{ i }}"
+              name="credits[{{ i }}][role]"
+              value=""
+            />
+          </div>
+          {% endfor %}
+
+        </div>
+        <!-- Keep the Add Credit button -->
+        <button type="button" onclick="addCredit()">Add credit</button><br /><br />
+
+        <button type="submit">Update Movie</button>
+      </form>
+
+      <script>
+        // Adjust JS to use consistent naming and handle potentially existing fields
+        function addCredit() {
+          // Find the last credit input index to continue the sequence
+          const creditInputs = document.querySelectorAll('#credits input[name^="credits["]');
+          let lastIndex = -1;
+          if (creditInputs.length > 0) {
+             // Extract index from the name attribute like credits[7][name]
+             const lastName = creditInputs[creditInputs.length - 1].name;
+             const match = lastName.match(/\[(\d+)\]/);
+             if (match) {
+                 lastIndex = parseInt(match[1], 10);
+             }
+          }
+          const nextIndex = lastIndex + 1;
+
+          const creditsDiv = document.getElementById("credits");
+          const newCredit = document.createElement("div");
+          newCredit.className = "credit";
+          // Use consistent 'credits' naming and the next index
+          newCredit.innerHTML = `
+          <label for="name_${nextIndex}">Name:</label>
+          <input type="text" id="name_${nextIndex}" name="credits[${nextIndex}][name]">
+          <label for="role_${nextIndex}">Role:</label>
+          <input type="text" id="role_${nextIndex}" name="credits[${nextIndex}][role]">
+      `;
+          creditsDiv.appendChild(newCredit);
+        }
+      </script>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+/* static/app.css */
+
+/* --- General & Body --- */
+body {
+  font-family: sans-serif; /* Use a common sans-serif font */
+  line-height: 1.6; /* Improve readability */
+  margin: 20px; /* Add space around the entire page content */
+  background-color: #f8f9fa; /* Light grey background */
+  color: #333; /* Dark grey text color */
+}
+
+h1, h2, h3 {
+  color: #444; /* Slightly darker headings */
+  margin-bottom: 0.8em; /* Space below headings */
+}
+
+a {
+  color: #007bff; /* Standard blue link color */
+  text-decoration: none; /* Remove underlines by default */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+section {
+  background-color: #fff; /* White background for main content area */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+  margin-top: 20px;
+}
+
+/* --- Header & Navigation --- */
+header {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline-block; /* Make list items horizontal */
+  margin-right: 15px; /* Space between nav items */
+}
+
+nav a {
+  font-weight: bold;
+  color: #495057;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+
+/* --- Tables (main.html, movie.html credits) --- */
+table {
+  width: 100%; /* Make tables take full width */
+  border-collapse: collapse; /* Remove space between borders */
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #dee2e6; /* Light grey borders */
+  padding: 10px; /* Padding inside cells */
+  text-align: left; /* Align text to the left */
+  vertical-align: middle; /* Align content vertically in the middle */
+}
+
+th {
+  background-color: #e9ecef; /* Light grey background for headers */
+  font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa; /* Subtle striping for odd rows */
+}
+
+tbody tr:hover {
+  background-color: #e2e6ea; /* Highlight row on hover */
+}
+
+/* Adjust poster column width if needed */
+/* table th:first-child, table td:first-child {
+  width: 120px;
+  text-align: center;
+} */
+
+
+/* --- Forms (movie-form.html) --- */
+form div {
+  margin-bottom: 15px; /* Space between form fields */
+}
+
+label {
+  display: block; /* Make labels appear on their own line */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%; /* Make inputs take full width */
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"] { /* Style for 'Add credit' button */
+  background-color: #6c757d;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Style for credit input pairs */
+.credit {
+  display: flex; /* Arrange label/input side-by-side */
+  align-items: center;
+  gap: 10px; /* Space between elements */
+  margin-bottom: 10px;
+  border: 1px dashed #eee; /* Optional: visually group them */
+  padding: 5px;
+}
+
+.credit label {
+  margin-bottom: 0; /* Remove bottom margin for inline labels */
+  flex-basis: 50px; /* Give labels a fixed width */
+  text-align: right;
+}
+
+.credit input[type="text"] {
+  flex-grow: 1; /* Allow inputs to take remaining space */
+  width: auto; /* Override the 100% width */
+}
+
+/* --- Movie Detail Page Specifics (Optional) --- */
+#movie-details {
+  display: flex; /* Arrange poster and meta side-by-side */
+  gap: 20px; /* Space between poster and meta */
+  margin-bottom: 20px;
+}
+
+#movie-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

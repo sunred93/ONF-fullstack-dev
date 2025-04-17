@@ -1,0 +1,44 @@
+{% extends 'layout.html' %} {% block content %}
+<h2>{{ movie.title }}</h2>
+<div id="movie-details">
+  <div id="movie-poster">
+    <img
+      src="static/placeholder-poster.jpg"
+      height="100px"
+      alt="Poster for {{ movie.title }}"
+    />
+  </div>
+  <ul id="movie-meta">
+    <li><strong>Release Year:</strong> {{ movie.year }}</li>
+    <li><strong>Genre:</strong> {{ movie.genre }}</li>
+    <li><strong>Rating:</strong> {{ movie.rating }}/6</li>
+    {# Assuming /6 scale #}
+  </ul>
+</div>
+<table id="credits">
+  <caption>
+    Credits
+  </caption>
+  {# Added caption #}
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    {# Start the loop over the 'credits' list #} {% for credit in credits %}
+    <tr>
+      {# Display name and role for the current credit in the loop #}
+      <td>{{ credit.name }}</td>
+      <td>{{ credit.role }}</td>
+    </tr>
+    {# Optional: Add a message if the credits list is empty #} {% else %}
+    <tr>
+      <td colspan="2">No credits listed.</td>
+    </tr>
+    {# End the loop #} {% endfor %}
+  </tbody>
+</table>
+<p><a href="edit-movie-{{ movie.id }}.html">Edit</a></p>
+{% endblock %}

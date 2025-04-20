@@ -1,6 +1,6 @@
 
 function getRandomDuck() {
-    fetch("https://api.cors.lol/?url=https://random-d.uk/api/random")
+    fetch("https://api.cors.lol/?url=https://random-d.uk/api/random?gif")
     .then(response => {
         // Add error handling for bad HTTP responses
         if (!response.ok) {

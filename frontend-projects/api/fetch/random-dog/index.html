@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>&#128054;Random dog&#128054;</h1>
+    </header>
+    <main>
+      <div class="dog-container">
+        <div class="duck">
+          <img
+            id="dog-image"
+            aria-live="randomly generated dog"
+            src=""
+            alt="Randomly generated dog"
+          />
+          <p id="dog-message" aria-live="randomly generated message"></p>
+          <div id="view-count-container">
+            <p><strong>viewed :</strong></p>
+            <span id="view-count">0</span>
+          </div>
+          <button id="generate-button" aria-label="Generate a new dog">
+            Get another dog
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

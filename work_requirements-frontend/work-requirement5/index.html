@@ -12,10 +12,28 @@
     </header>
     <main>
       <div class="duck-container">
-        <div class="duck"></div>
-        <img id="duck-image" aria-live="randomly generated duck" src="" alt="Randomly generated duck" />
-        <p id="duck-message"aria-live= "randomly generated message"></p>
-        <button id="generate-button" aria-label="Generate a new duck">Get another duck</button>
+        <div class="duck">
+
+          <img id="duck-image" aria-live="randomly generated duck" src="" alt="Randomly generated duck" />
+          <p id="duck-message"aria-live= "randomly generated message"></p>
+          <div id="view-count-container">
+            <p><strong>viewed :</strong></p><span id="view-count">0</span>
+          </div>
+          <button id="generate-button" aria-label="Generate a new duck">Get another duck</button>
+
+        </div>
+        <fieldset>
+    <legend>Select Image Format:</legend>
+    <div>
+        <input type="radio" id="format-jpg" name="duckFormat" value="jpg" checked>
+        <label for="format-jpg">JPEG</label>
+    </div>
+    <div>
+        <input type="radio" id="format-gif" name="duckFormat" value="gif">
+        <label for="format-gif">GIF</label>
+    </div>
+</fieldset>
+  
       </div>
 
     </main>

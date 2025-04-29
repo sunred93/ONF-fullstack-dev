@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Pokémon Fetcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Random Pokémon Fetcher</h1>
+    </header>
+
+    <main>
+      <!-- Add aria-busy attribute, controlled by JS -->
+      <div class="pokemon-container" aria-busy="false">
+        <!-- Add role="status" for the loader -->
+        <div
+          id="loader"
+          class="pokeball-loader"
+          role="status"
+          aria-label="Loading Pokémon data"
+        ></div>
+
+        <!-- Add aria-live and aria-atomic to announce updates -->
+        <div class="card-content" aria-live="polite" aria-atomic="true">
+          <div class="card-header">
+            <h2 id="pokemon-name">Loading...</h2>
+            <p id="pokemon-types">Types: <span aria-hidden="true">...</span></p>
+          </div>
+          <div class="card-image-area">
+            <!--  alt text is updated via JS -->
+            <img id="pokemon-image" src="" alt="Image of a Pokémon" />
+            <div class="sprite-controls">
+              <button
+                id="sprite-default-btn"
+                disabled
+                aria-label="Show default sprite"
+              >
+                Default
+              </button>
+              <button
+                id="sprite-shiny-btn"
+                disabled
+                aria-label="Show shiny sprite"
+              >
+                Shiny
+              </button>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <div class="detail-item">
+              <!-- Give label an ID -->
+              <span id="height-label">Height:</span>
+              <!-- Associate value with label -->
+              <span id="pokemon-height" aria-labelledby="height-label"
+                ><span aria-hidden="true">...</span></span
+              >
+            </div>
+            <div class="detail-item">
+              <span id="weight-label">Weight:</span>
+              <span id="pokemon-weight" aria-labelledby="weight-label"
+                ><span aria-hidden="true">...</span></span
+              >
+            </div>
+            <div class="detail-item">
+              <span id="exp-label">Base Exp:</span>
+              <span id="pokemon-base-exp" aria-labelledby="exp-label"
+                ><span aria-hidden="true">...</span></span
+              >
+            </div>
+            <div class="detail-item abilities">
+              <span id="abilities-label">Abilities:</span>
+              <span id="pokemon-abilities" aria-labelledby="abilities-label"
+                ><span aria-hidden="true">...</span></span
+              >
+            </div>
+            <div class="detail-item stats">
+              <span id="stats-label">Stats:</span>
+              <!-- Associate list with label -->
+              <ul id="pokemon-stats" aria-labelledby="stats-label">
+                <!-- Stats will be populated by JS -->
+                <li>Loading...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button id="generate-button">Get Random Pokémon!</button>
+        <p class="view-counter">
+          Pokémon Viewed: <span id="view-counter">0</span>
+        </p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

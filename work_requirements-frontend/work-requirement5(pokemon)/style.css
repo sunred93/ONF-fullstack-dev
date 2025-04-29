@@ -1,0 +1,288 @@
+/* Basic Reset & Body Styling */
+body {
+  /* Using a game-like font */
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  /* Pokémon-themed gradient */
+  background: linear-gradient(90deg, #ffcb05 0%, #3d7dca 50%, #003a70 100%);
+  color: #333; /* Dark grey text */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* Header Styling */
+header {
+  background-color: #e3350d; /* Pokéball Red */
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+  border-bottom: 4px solid black; /* Thick bottom border */
+
+  & h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Adjusted for the pixel font */
+    text-shadow: 2px 2px #333; /* Add shadow for readability */
+  }
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1; /* Allow main to fill available space */
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
+  padding: 2rem; /* Add some padding around the container */
+}
+
+/* --- Pokémon Card Styling --- */
+.pokemon-container {
+  /* Basic card shape and background */
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); /* Yellow gradient */
+  border: 10px solid #2a75bb; /* Blue border */
+  border-radius: 20px; 
+  padding: 15px; 
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.35); 
+  max-width: 420px; 
+  width: 90%;
+  text-align: center;
+  position: relative; /* Needed for absolute positioning of loader */
+  overflow: hidden; /* Hide anything that might poke out */
+  font-family: Arial, sans-serif; 
+  margin: 20px auto; /* Center the card */
+
+  /* Inner content area styling */
+  & .card-content {
+    background-color: #fff; /* White inner background */
+    border: 1px solid #dedede; /* Light inner border */
+    border-radius: 10px; 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 420px; 
+  }
+
+  /* Card Header (Name and Types) */
+  & .card-header {
+    background-color: #eee; /* Light grey header background */
+    padding: 10px; 
+    border-radius: 6px 6px 0 0; 
+    margin: -20px -20px 15px -20px; /* Negative margin to overlap the border */
+    border-bottom: 1px solid #ccc;
+
+    /* Nested ID selectors  */
+    & #pokemon-name {
+      font-family: 'Press Start 2P', cursive; /* Keep pixel font for name */
+      font-size: 1.2rem; 
+      margin: 0 0 7px 0; 
+      color: #333;
+      text-transform: capitalize;
+      min-height: 1.2rem; /* Reserve space */
+    }
+
+    & #pokemon-types {
+      font-family: Arial, sans-serif; /* Simpler font for types */
+      font-size: 0.9rem; 
+      color: #555;
+      margin: 0;
+      min-height: 1em; /* Reserve space */
+      text-transform: capitalize;
+    }
+  }
+
+  /* Card Image Area */
+  & .card-image-area {
+    background-color: #f0f0f0; /* Placeholder background for image area */
+    border: 1px solid #ccc;
+    border-radius: 6px; 
+    margin-bottom: 20px; 
+    min-height: 220px; 
+    display: flex; /* Center image vertically/horizontally */
+    align-items: center;
+    justify-content: center;
+    padding: 15px; 
+    flex-grow: 1; /* Allow image area to take up space */
+
+    & #pokemon-image {
+      display: block;
+      max-width: 100%; /* Fit within the area */
+      max-height: 210px; 
+      height: auto;
+      min-height: 0; 
+      background-color: transparent; /* Remove placeholder bg */
+      border: none; 
+      border-radius: 0;
+      margin: 0; 
+      image-rendering: pixelated; /* Keep pixel art sharp */
+    }
+  }
+
+  /* --- Card Details Styling --- */
+  & .card-details {
+    font-family: Arial, sans-serif; /* Use standard font for details */
+    font-size: 0.85rem;
+    text-align: left; /* Align details text to the left */
+    margin-top: 10px; /* Space above the details section */
+    padding-top: 10px; /* Space within the details section */
+    border-top: 1px dashed #ccc; /* Separator line */
+
+    & .detail-item {
+      margin-bottom: 6px; /* Space between detail items */
+      line-height: 1.4;
+
+      & span:first-child {
+        font-weight: bold; /* Make labels bold */
+        color: #555;
+        display: inline-block;
+        min-width: 70px; /* Align values */
+      }
+
+      /* Specific styling for abilities/stats */
+      &.abilities span:last-child,
+      &.stats ul {
+        text-transform: capitalize;
+      }
+
+      /* Stats List Styling */
+      &.stats ul {
+        list-style: none;
+        padding-left: 75px; /* Indent stats under the label */
+        margin: -1.4em 0 0 0; /* Align with label */
+
+        & li {
+          font-size: 0.8rem;
+          color: #444;
+
+          & span {
+            font-weight: normal !important; /* Override bold label */
+            color: #444 !important;
+            min-width: 0 !important; /* Remove min-width for stat names/values */
+          }
+
+          & .stat-value {
+            font-weight: bold;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  /* --- Pokéball Loader Styling --- */
+  & .pokeball-loader {
+    /* Position absolutely within the card container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure loader is on top */
+    width: 50px;        
+    height: 50px;
+    /* Create red top, black line, white bottom */
+    background: linear-gradient(to bottom,
+       #e3350d 0%, #e3350d 47%, /* Red top */
+       black 47%, black 53%,   /* Black band */
+       white 53%, white 100%   /* White bottom */
+    );
+    border-radius: 50%; /* Make it round */
+    border: 3px solid black; /* Outer border */
+    margin: 0; 
+    animation: spin 1s linear infinite; /* Apply the spin animation */
+    display: none; /* Hide it by default */
+
+    /* Pseudo-elements */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px; /* Size of the white button */
+      height: 18px;
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid black; /* Button border */
+      z-index: 1; /* Ensure it's above the background gradient */
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px; /* Size of the inner dot */
+      height: 8px;
+      background-color: white; 
+      border-radius: 50%;
+      border: 1px solid black;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5); /* Inner detail */
+      z-index: 2; /* Above the outer button circle */
+    }
+  }
+
+  /* --- Button Styling --- */
+  & #generate-button {
+    background-color: #3d7dca; /* Pokémon Blue */
+    color: white;
+    border: 2px solid black;
+    padding: 0.9rem 1.8rem; 
+    font-family: 'Press Start 2P', cursive; /* Match body font */
+    font-size: 1rem; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease; /* Add opacity transition */
+    text-shadow: 1px 1px #003a70;
+    margin-top: 20px; 
+
+    &:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: #3d7dca; /* Keep original color */
+
+      &:hover {
+        background-color: #3d7dca; /* Prevent hover effect when disabled */
+      }
+    }
+  }
+
+  /* --- Loading State Control --- */
+  &.loading {
+    & .card-content,
+    & .card-details {
+        visibility: hidden;
+    }
+
+    & .pokeball-loader {
+        display: block;
+    }
+
+    & #generate-button {
+        visibility: visible; /* Ensure button stays visible */
+    }
+  }
+} /* End of .pokemon-container */
+
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    /* Combine centering translate with starting rotation */
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    /* Combine centering translate with ending rotation */
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Hide fieldset if not needed */
+/* fieldset { display: none; } */

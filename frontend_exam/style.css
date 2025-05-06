@@ -1,14 +1,12 @@
 :root {
-  /*fonts*/
+  /* Design tokens */
   --headingFontSize: 36px;
-
   --logoFontFamily: "Frank Ruhl Libre", serif;
   --fontFamily: "Arimo", sans-serif;
-
-  /*colors*/
   --white: #ffffff;
-  --black: #000000;
+  --black: #0b0a08;
   --beige: #f7f2de;
+  --green: #008F51;
 }
 
 /* Reset and Base Styles */
@@ -24,13 +22,12 @@ button {
   padding: 0;
   box-sizing: border-box;
   border: none;
-  background-color: transparent;
+  background: transparent;
 }
 
 body {
   font-family: var(--fontFamily);
-  color: #0b0a08;
-  margin: 0;
+  color: var(--black);
 }
 
 /* Header Styles */
@@ -42,16 +39,19 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
   height: 68px;
+  z-index: 10;
+
+  /* new: divider line under header */
+  border-bottom: 1px solid var(--black);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  margin-right: 2rem; /* Add margin to the right of the wrapper */
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
+  margin-right: 2rem;
 }
 
 .logo {
@@ -63,122 +63,223 @@ header {
   transform: translateX(-50%);
 }
 
+/* Hamburger icon (never changes) */
 .hamburger-menu-btn {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Shopping Cart Indicator Styles */
-.shopping-cart {
-  position: relative;
-  padding: 0px 15px;
-  height: 30px;
-  border-radius: 16px;
-  background-color: #008f51;
-  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+/* Shopping Cart Indicator */
+.shopping-cart {
+  position: relative;
+  padding: 0 15px;
+  height: 30px;
+  border-radius: 16px;
+  background-color: var(--green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   font-weight: bold;
 }
 
-/* utility class */
+/* Utility */
 .flex-center-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Layout container */
+.main-container {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section */
 .hero {
+  background-image: url("pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  margin-top: 68px;
+  height: 850px;
+}
+
+.hero-content {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-family: var(--logoFontFamily);
+  font-weight: 300;
+  font-size: 200px;
+  line-height: 200px;
+}
+
+.hero-content .verticalLine {
+  display: inline-block;
+  width: 2px;
+  height: 208px;
+  background-color: white;
+  margin: 30px 0;
+}
+
+.hero-content p {
+  font-family: var(--fontFamily);
+  font-size: var(--headingFontSize);
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+/* Shop & Ask Section */
+.shop-ask-container {
+  margin-top: 90px;
+  padding-bottom: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Text color on the image */
-  text-align: center;
-  margin-top: 68px; /* Adds a margin to the top, to make space for the header */
-  height: 1200px;
-  background-image: url("pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  flex-direction: column;
-  position: relative;
-
-  .hero-content {
-    padding: 20px;
-    border-radius: 10px;
-
-    h1 {
-      font-family: "Frank Ruhl Libre", serif;
-      font-weight: 300;
-      font-size: 200px;
-      line-height: 200px;
-    }
-    .verticalLine {
-      display: inline-block;
-      height: 150px;
-      width: 2px;
-      background-color: white;
-      margin: 30px 0;
-    }
-    p {
-      font-family: "Arimo", sans-serif;
-      font-size: var(--headingFontSize);
-      line-height: 40px;
-      text-transform: uppercase;
-    }
-  }
 }
 
-.shop-ask-container {
-  .column {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.shop-ask-container .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 756px;
+  height: 841px;
+}
 
-    h2 {
-      font-family: "Arimo", sans-serif;
-      font-size: 20px;
-      text-transform: uppercase;
-      margin-bottom: 8px; /* Space below the h2 */
-    }
-    p {
-      font-family: "Frank Ruhl Libre", serif;
-      font-weight: 300;
-      font-size: 20px;
-      padding-top: 45px; /* Top padding */
-      padding-bottom: 45px; /* Bottom padding */
-      padding-left: 0px;
-      padding-right: 0px;
-      &:first-of-type {
-        padding-top: 8px;
-      }
-    }
-    img {
-      height: 327px;
-      width: 448px;
-      border: none;
-      border-radius: 20px;
-      justify-content: space-between;
-    }
-    button {
-      width: 320px;
-      height: 45px;
-      background-color: #dc4131; /* Default color */
-      color: #ffffff; /* Text color, assuming you want white text */
-      font-size: 16px; /* Adjust as needed */
-      border-radius: 5px; /* Optional: Add rounded corners */
-      cursor: pointer; /* Change cursor to a pointer on hover */
-      transition: background-color 0.3s ease; /* Smooth transition for hov */
-      &:hover {
-        background-color: #ae2e21; /* Hover color */
-      }
-    }
-  }
+.shop-ask-container .column h2 {
+  font-family: var(--fontFamily);
+  font-size: var(--headingFontSize);
+  line-height: var(--headingFontSize);
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.shop-ask-container .column p {
+  font-family: var(--logoFontFamily);
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.shop-ask-container .column img {
+  width: 448px;
+  height: 327px;
+  border-radius: 20px;
+}
+
+.shop-ask-container .column button {
+  width: 320px;
+  height: 45px;
+  background-color: #dc4131;
+  color: var(--white);
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shop-ask-container .column button:hover {
+  background-color: #ae2e21;
+}
+
+/* Divider between columns */
+#shop-ask-divider {
+  width: 2px;
+  height: 750px;
+  background-color: var(--black);
+  margin: 0 60px;
+}
+
+/* Dropdown Menu Panel */
+.dropdown-menu {
+  position: fixed;            /* fill from the very top behind header */
+  top: 0;                      /* start at viewport top */
+  left: 0;
+  width: 475px;                /* spec */
+  height: 983px;               /* spec */
+  background-color: var(--green);
+  padding: 16px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow-y: auto;
+
+  /* layout its children for “Checkout” pinning */
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;                /* above header */
+}
+.dropdown-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Internal close button */
+.close-menu-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px; 
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+}
+
+/* Menu List */
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0 0; /* push below the X */
+  padding: 0;
+  flex: 1;           /* so .checkout can margin-top:auto */
+}
+
+.menu-list li + li {
+  margin-top: 24px;
+}
+
+.menu-list .checkout {
+  margin-top: auto;
+}
+
+.dropdown-menu .menu-list a {
+  color: var(--black);
+  font-family: var(--fontFamily);
+  font-size: var(--headingFontSize);
+  line-height: var(--headingFontSize);
+  text-transform: uppercase;
+  text-decoration: none;
 }

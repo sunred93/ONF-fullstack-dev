@@ -1,0 +1,83 @@
+/* ——— Popular Produce Section ——— */
+.popular-produce {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 90px 24px;    /* match your other sections */
+    box-sizing: border-box;
+  }
+  
+  .popular-produce h2 {
+    font-family: var(--fontFamily);
+    font-size: var(--headingFontSize);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  
+  /* 3-col grid, auto-wrap on narrower screens */
+  .popular-produce .produce-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  /* Each product card */
+  .popular-produce .produce-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* Image */
+  .popular-produce .produce-card img {
+    width: 454px;
+    height: 432px;
+    display: block;
+    border-radius: 5%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Info row below image */
+  .popular-produce .produce-card .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px;
+  }
+  
+  .popular-produce .produce-card .info .title {
+    font-family: var(--fontFamily);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .popular-produce .produce-card .info .price {
+    font-family: var(--fontFamily);
+    font-size: 16px;
+  }
+  
+  /* Weight caption */
+  .popular-produce .produce-card .weight {
+    font-family: var(--logoFontFamily);
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+    padding: 0 12px 12px;
+  }
+  
+  /* “Add to basket” button overlay */
+  .popular-produce .produce-card .add-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: var(--fontFamily);
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }

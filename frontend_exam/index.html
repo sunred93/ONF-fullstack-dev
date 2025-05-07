@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/components/shop-ask.css" />
     <link rel="stylesheet" href="css/components/how-it-works.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/components/popular-produce.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -118,7 +120,90 @@
           </div>
         </div>
       </section>
+      <section class="popular-produce">
+        <h2>Popular Produce</h2>
+        <div class="produce-grid">
+          <div
+            class="produce-card"
+            data-name="Oats"
+            data-price="48"
+            data-unit="kg"
+          >
+            <img
+              src="pictures\Images\Product Page\lukasz-rawa-HB_MVtHVMLc-unsplash.jpg"
+              alt="Oats"
+            />
+            <div class="info">
+              <div class="title">Oats</div>
+              <div class="price">48 kr / kg</div>
+            </div>
+            <div class="weight">1 kg</div>
+            <button class="add-btn">Add to basket ↑</button>
+          </div>
+          <div
+            class="produce-card"
+            data-name="Red Onions"
+            data-price="48"
+            data-unit="kg"
+          >
+            <img
+              src="pictures\Images\Product Page\goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg"
+              alt="Red Onions"
+            />
+            <div class="info">
+              <div class="title">Red Onions</div>
+              <div class="price">48 kr / kg</div>
+            </div>
+            <div class="weight">0.5 kg</div>
+            <button class="add-btn">Add to basket ↑</button>
+          </div>
+          <div
+            class="produce-card"
+            data-name="Garlic"
+            data-price="48"
+            data-unit="kg"
+          >
+            <img
+              src="pictures\Images\Product Page\matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg"
+              alt="Garlic"
+            />
+            <div class="info">
+              <div class="title">Garlic</div>
+              <div class="price">48 kr / kg</div>
+            </div>
+            <div class="weight">0.2 kg</div>
+            <button class="add-btn">Add to basket ↑</button>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer class="footer">
+      <div class="brand">FRAM</div>
+      <div class="subscribe">
+        <h2>Stay Updated</h2>
+        <p>
+          Sign up for our newsletter to be the first<br />
+          to know about new produce or other <br />
+          exciting news!
+        </p>
+        <form id="subscribe-form">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail address"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+        <div id="subscribe-message" aria-live="polite"></div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

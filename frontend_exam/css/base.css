@@ -1,0 +1,32 @@
+:root {
+    /* Design tokens */
+    --headingFontSize: 36px;
+    --logoFontFamily: "Frank Ruhl Libre", serif;
+    --fontFamily: "Arimo", sans-serif;
+    --white: #ffffff;
+    --black: #0b0a08;
+    --beige: #f7f2de;
+    --green: #008F51;
+  }
+  
+  /* Reset and Base Styles */
+  body,
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  li,
+  button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+  }
+  
+  body {
+    font-family: var(--fontFamily);
+    color: var(--black);
+  }
+  

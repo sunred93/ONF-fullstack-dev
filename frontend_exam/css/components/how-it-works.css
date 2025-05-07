@@ -1,0 +1,85 @@
+/* This Is How It Works Section */
+.how-it-works {
+    display: grid;
+    width: 1420px;                    /* 400 + 1020 */
+    height: 785px;                    /* 197 + (3×196) */
+    margin: 0 auto;
+    background: var(--beige);
+    box-sizing: border-box;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    grid-template-columns: 400px 1020px;
+    grid-template-rows: 197px 196px 196px 196px;
+  }
+  
+  .how-left {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--black);
+  }
+  .how-left h2 {
+    margin: 0;
+    font-family: var(--fontFamily);
+    font-size: var(--headingFontSize);
+    line-height: var(--headingFontSize);
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .how-right {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    display: grid;
+    grid-template-rows: inherit;
+  }
+  
+  .how-right .step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--black);
+    position: relative;
+  }
+  .how-right .step:last-child {
+    border-bottom: none;
+  }
+  
+  .how-right .step h3 {
+    width: 278px;
+    margin: 0 0 0 90px;
+    font-family: var(--fontFamily);
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  
+  .how-right .step p,
+  .how-right .step a {
+    margin: 0;
+    margin-left: 368px;  /* 90 + 278 */
+  }
+  
+  .how-right .step p {
+    font-family: var(--logoFontFamily);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    width: 414px;
+  }
+  
+  .how-right .step a {
+    display: block;
+    font-family: var(--fontFamily);
+    font-size: 18px;
+    text-decoration: underline;
+    color: var(--black);
+  }
+  
+  .how-right .checkout {
+    align-self: end;
+  }
+  

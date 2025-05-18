@@ -1,32 +1,101 @@
+/* base.css
+   ——————————————————————————————————————————————————————————
+   Design tokens, CSS reset, and base typography
+—————————————————————————————————————————————————————————— */
+
+/* ——— Design tokens ——— */
 :root {
-    /* Design tokens */
-    --headingFontSize: 36px;
-    --logoFontFamily: "Frank Ruhl Libre", serif;
-    --fontFamily: "Arimo", sans-serif;
-    --white: #ffffff;
-    --black: #0b0a08;
-    --beige: #f7f2de;
-    --green: #008F51;
-  }
-  
-  /* Reset and Base Styles */
-  body,
-  h1,
-  h2,
-  h3,
-  p,
-  ul,
-  li,
-  button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-    background: transparent;
-  }
-  
-  body {
-    font-family: var(--fontFamily);
-    color: var(--black);
-  }
+  /* Colours (from spec) */
+  --beige:    #F7F2DE;
+  --accent-red:    #DC4131;
+  --hover-red:     #AE2E21;
+  --color-text:          #0B0A08;
+  --white:  #FFFFFF;
+  --light-blue:    #E1EAF0;
+  --green:         #008F51;
+
+  /* Typography */
+  --font-logo:       "Frank Ruhl Libre", serif;
+  --font-sans:       "Arimo", sans-serif;
+
+  /* Hero sizes */
+  --fs-hero-xl:      200px;
+  --fs-hero-lg:      75px;
+
+  /* Section headings */
+  --fs-heading:      36px;
+  --fs-subheading:   24px;
+  --fs-step-title:   20px;
+
+  /* Body text */
+  --fs-body-lg:      20px;
+  --fs-body:         16px;
+  --lh-body:         1.5;
+
+  /* Spacing scale */
+  --space-xs:        4px;
+  --space-sm:        8px;
+  --space-md:        16px;
+  --space-lg:        24px;
+  --space-xl:        45px;
+  --space-xxl:       90px;
+
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1440px;
+}
+
+/* ——— Reset and Base Styles ——— */
+
+/* Apply border-box to all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins and paddings */
+body, h1, h2, h3, h4, h5, h6,
+p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set base font and background */
+html {
+  font-size: var(--fs-body);
+}
+body {
+  font-family: var(--font-sans);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background: var(--color-secondary-bg);
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Links inherit color and lose underline */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Buttons inherit font, remove defaults */
+button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Images and media scale responsively */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
   

@@ -1,49 +1,21 @@
-/* Utility container to center and constrain content */
-.main-container {
-    max-width: 1512px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-image: url("../pictures/Images/Landing%20Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    margin-top: 68px;  /* leave space for fixed header */
-    height: 850px;
-  }
-  
-  .hero-content {
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .hero-content h1 {
-    font-family: var(--logoFontFamily);
-    font-weight: 300;
-    font-size: 200px;
-    line-height: 200px;
-  }
-  
-  .hero-content .verticalLine {
-    display: inline-block;
-    width: 2px;
-    height: 208px;
-    background-color: white;
-    margin: 30px 0;
-  }
-  
-  .hero-content p {
-    font-family: var(--fontFamily);
-    font-size: var(--headingFontSize);
-    line-height: 40px;
-    text-transform: uppercase;
-  }
-  
+/* layout.css
+   —————————————————————————————————————————————————
+   Global page structure: full-width container, 
+   section spacing, and breakpoint enhancements 
+   (mobile-first)
+   —————————————————————————————————————————————————
+*/
+
+/* 1. GENERIC CONTAINER */
+.container {
+  width: 100%;                    /* fill viewport */
+  margin: 0 auto;                 /* center if constrained */
+  padding-inline: var(--space-md);/* horizontal gutter */
+  box-sizing: border-box;         /* include padding in width */
+}
+
+/* 2. SECTION SPACING */
+section {
+  padding-block: var(--space-xxl); /* 90px top & bottom */
+  box-sizing: border-box;
+}

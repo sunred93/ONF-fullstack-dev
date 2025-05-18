@@ -1,7 +1,7 @@
 /* This Is How It Works Section */
 .how-it-works {
     display: grid;
-    width: 1420px;                    /* 400 + 1020 */
+                       /* 400 + 1020 */
     height: 785px;                    /* 197 + (3×196) */
     margin: 0 auto;
     background: var(--beige);

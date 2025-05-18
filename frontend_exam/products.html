@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRAM – Products</title>
+
+    <!-- Core styles -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <!-- Product-page specific -->
+    <link rel="stylesheet" href="css/components/product-page.css" />
+    <link rel="stylesheet" href="css/components/partner-farms.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">FRAM</div>
+      <div class="header-actions">
+        <nav class="hamburger-menu-btn">☰</nav>
+        <div class="shopping-cart">
+          <span class="cart-item-count">0</span>
+        </div>
+        <div class="dropdown-menu">
+          <button class="close-menu-btn" aria-label="Close menu">✕</button>
+          <ul class="menu-list">
+            <li><a href="index.html#shop">Products</a></li>
+            <li><a href="index.html#chat">Chat</a></li>
+            <li class="checkout"><a href="cart.html">Checkout</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content wrapper -->
+    <main class="main-container">
+      <!-- Product page filter + grid -->
+      <section class="product-page">
+        <h1>Produce</h1>
+        <p>
+          Explore our selection of seasonal produce, sourced directly from<br />
+          local farms to ensure peak freshness and quality. Every item is<br />
+          chosen with care, supporting sustainable practices and bringing<br />
+          the best of the harvest to your table
+        </p>
+        <div class="product-grid">
+          <div class="produce-card" data-name="Oats">
+            <div class="image-wrapper">
+              <img
+                src="pictures/Images/Product Page/lukasz-rawa-HB_MVtHVMLc-unsplash.jpg"
+                alt="Oats"
+              />
+              <button class="add-btn">Add to basket ↑</button>
+            </div>
+            <div class="info">
+              <div class="title">Oats</div>
+              <div class="price">16 kr / kg</div>
+            </div>
+            <div class="weight">1 kg</div>
+          </div>
+
+          <div class="produce-card" data-name="Red onions">
+            <div class="image-wrapper">
+              <img
+                src="pictures/Images/Product Page/goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg"
+                alt="Red onions"
+              />
+              <button class="add-btn">Add to basket ↑</button>
+            </div>
+            <div class="info">
+              <div class="title">Red onions</div>
+              <div class="price">45 kr / kg</div>
+            </div>
+            <div class="weight">1 kg</div>
+          </div>
+
+          <div class="produce-card" data-name="Garlic">
+            <div class="image-wrapper">
+              <img
+                src="pictures/Images/Product Page/matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg"
+                alt="Garlic"
+              />
+              <button class="add-btn">Add to basket ↑</button>
+            </div>
+            <div class="info">
+              <div class="title">Garlic</div>
+              <div class="price">38 kr / kg</div>
+            </div>
+            <div class="weight">0.2 kg</div>
+          </div>
+
+          <div class="produce-card" data-name="Potatoes">
+            <div class="image-wrapper">
+              <img
+                src="pictures/Images/Product Page/rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg"
+                alt="Potatoes"
+              />
+              <button class="add-btn">Add to basket ↑</button>
+            </div>
+            <div class="info">
+              <div class="title">Potatoes</div>
+              <div class="price">32 kr / kg</div>
+            </div>
+            <div class="weight">1 kg</div>
+          </div>
+
+          <div class="produce-card" data-name="Carrots">
+            <div class="image-wrapper">
+              <img
+                src="pictures/Images/Product Page/goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg"
+                alt="Carrots"
+              />
+              <button class="add-btn">Add to basket ↑</button>
+            </div>
+            <div class="info">
+              <div class="title">Carrots</div>
+              <div class="price">48 kr / kg</div>
+            </div>
+            <div class="weight">1 kg</div>
+          </div>
+        </div>
+      </section>
+      <section class="partner-farms">
+        <div class="farm-left">
+          <h2>See our partnering farms</h2>
+        </div>
+        <div class="farm-right">
+          <!-- embed your map iframe here (example uses Google Maps iframe) -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=…YourMapEmbedCode…"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="brand">FRAM</div>
+      <div class="subscribe">
+        <h2>Stay Updated</h2>
+        <p>
+          Sign up for our newsletter to be the first<br />
+          to know about new produce or other <br />
+          exciting news!
+        </p>
+        <form id="subscribe-form">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail address"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+        <div id="subscribe-message" aria-live="polite"></div>
+      </div>
+    </footer>
+    <script src="scripts\produce.js"></script>
+    <script src="scripts\landingpage.js"></script>
+  </body>
+</html>

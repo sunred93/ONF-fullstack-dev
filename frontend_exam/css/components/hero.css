@@ -1,0 +1,66 @@
+.hero {
+  /* full-bleed background image */
+  background-image: url("../../pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+
+  /* flex to center content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* text styling */
+  color: var(--white);
+  text-align: center;
+
+  /* full viewport minus header height */
+  min-height: calc(100vh - 68px);
+  padding-block: var(--space-xxl); /* 90px above and below */
+}
+
+.hero-content {
+  /* background overlay container */
+  padding: var(--space-md);
+  border-radius: var(--space-sm);
+}
+
+.hero-content h1 {
+  font-family: var(--font-logo);
+  font-weight: 300;
+  font-size: var(--fs-hero-lg); /* 75px on mobile */
+  margin-bottom: var(--space-sm);   /* 8px between title and paragraph */
+}
+
+.hero-content .verticalLine {
+    display: inline-block;
+    width: 2px;
+    height: 239px;
+    background-color: white;
+    margin: 30px 0;
+}
+
+.hero-content p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-subheading);  /* 24px on mobile */
+  line-height: var(--space-lg);     /* roughly 24px line-height */
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Desktop enhancements */
+@media (min-width: var(--bp-md)) {
+  .hero {
+    /* fixed height on desktop */
+    min-height: 850px;
+  }
+  .hero-content h1 {
+    font-size: var(--fs-hero-xl);   /* 200px on desktop */
+  }
+  .hero-content .verticalLine {
+    /* vertical divider on desktop */
+    width: 2px;
+    height: 208px;
+    margin-block: var(--space-xxl); /* 90px above and below */
+  }
+}

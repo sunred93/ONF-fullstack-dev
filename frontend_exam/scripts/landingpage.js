@@ -55,6 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  //-product page button logic-
+  document.getElementById('browse').addEventListener('click', () => {
+  window.location.href = 'products.html';
+});
+
   // — newsletter subscribe form —
   const form = document.getElementById("subscribe-form");
   const msg = document.getElementById("subscribe-message");

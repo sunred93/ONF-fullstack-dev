@@ -47,7 +47,7 @@
 }
 
 /* Desktop enhancements */
-@media (min-width: var(--bp-md)) {
+@media (min-width: 768px) {
   .hero {
     min-height: 850px;                 /* fixed desktop height */
     padding-block: var(--space-xxl);

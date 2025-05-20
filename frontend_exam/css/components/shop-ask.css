@@ -1,11 +1,10 @@
 /* Shop & Ask Section */
 .shop-ask-container {
-  display: flex;
+ display: flex;
   flex-direction: column;
-  gap: 48px;
-  padding: 24px;
+  gap: var(--space-xxl);          /* 90px between each column */
+  padding-inline: var(--space-md);
   box-sizing: border-box;
-  max-width: 100%;
 }
 
 .shop-ask-container .column {
@@ -16,30 +15,30 @@
 }
 
 .shop-ask-container .column h2 {
-  font-family: var(--fontFamily);
-  font-size: var(--headingFontSize);
-  line-height: var(--headingFontSize);
+  font-family: var(--font-sans);
+  font-size: var(--fs-heading); /*36 px*/
+  line-height: var(--lh-heading);
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
   margin-top: 48px;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-lg);
 }
 
 .shop-ask-container .column p {
-  font-family: var(--logoFontFamily);
+  font-family: var(--font-logo);
   font-weight: 300;
-  font-size: 18px;
+  font-size: var(fs-body-lg);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-lg);
 }
 
 .shop-ask-container .column img {
   width: 100%;
   max-width: 448px;
   max-height: 250px;
-  border-radius: 20px;
-  margin-bottom: 24px;
+  border-radius: var(--space-lg);
+  margin-bottom: var(--space-lg);
   object-fit: cover;
 }
 
@@ -47,42 +46,50 @@
   width: 100%;
   max-width: 320px;
   height: 45px;
-  background-color: #dc4131;
+  background-color: var(--accent-red); /* red */
   color: var(--white);
-  font-size: 16px;
-  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body); /* 16px */
+  border-radius: var(--space-md);
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-xxl); /* 90px below button */
 }
 
 .shop-ask-container .column button:hover {
-  background-color: #ae2e21;
+  background-color: var(--hover-red); /* darker red */
+}
+
+/* Divider: horizontal on mobile */
+#shop-ask-divider {
+  width: 100vh;
+  height: 2px;
+  background-color: var(--color-text);
+  margin-block: var(--space-xl);  /* 45px top & bottom */
 }
 
 /* DESKTOP: two columns, borders and spacing */
-@media (min-width: 900px) {
+/* Desktop: two-column layout */
+@media (min-width: 768px) {
   .shop-ask-container {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: row !important;    /* force row */
+    flex-wrap: nowrap;
     max-width: 1512px;
     margin: 0 auto;
-    gap: 0;
+    gap: 0;                            /* we’ll use divider margins */
   }
 
   .shop-ask-container .column {
-    width: 756px;
-    height: 841px;
+    width: 756px;                      /* fixed half-width */
+    text-align: left;
   }
 
-  .shop-ask-container .column:first-child {
-    border-right: 1px solid var(--black);
-    padding-right: 60px;
-  }
-
-  .shop-ask-container .column:last-child {
-    padding-left: 60px;
+  /* make the divider vertical */
+  #shop-ask-divider {
+    width: 2px;
+    height: auto;
+    align-self: stretch;
+    margin-inline: var(--space-xl);    /* 45px left & right */
+    background-color: var(--color-text);
   }
 }
 

@@ -1,85 +1,92 @@
 /* This Is How It Works Section */
 .how-it-works {
+  background: var(--beige);
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left panel (Title) and right panel (steps) share padding */
+.how-it-works > * {
+  padding: var(--space-lg) var(--space-md);
+  box-sizing: border-box;
+}
+
+/* Title area: centered on mobile */
+.how-left {
+  text-align: center;
+}
+.how-left h2 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-heading);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: var(--space-xxl) 0; /* 90px top & bottom */
+}
+
+/* Steps container: vertical list with separators */
+.how-right {
+  display: flex;
+  flex-direction: column;
+}
+.how-right .step {
+  padding-block: var(--space-lg); /* 24px top & bottom */
+  position: relative;
+}
+/* Add divider between steps */
+.how-right .step + .step {
+  border-top: 1px solid var(--color-text);
+}
+
+/* Step heading */
+.how-right .step h3 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-step-title);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm) var(--space-md);
+}
+.how-right .step p {
+  font-family: var(--font-logo);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  margin: 0 var(--space-md);
+}
+
+/* DESKTOP: two-column grid for title and steps */
+@media (min-width: 768px) {
+  .how-it-works {
     display: grid;
-                       /* 400 + 1020 */
-    height: 785px;                    /* 197 + (3×196) */
-    margin: 0 auto;
-    background: var(--beige);
-    box-sizing: border-box;
-    border-top: 1px solid var(--black);
-    border-bottom: 1px solid var(--black);
-    grid-template-columns: 400px 1020px;
-    grid-template-rows: 197px 196px 196px 196px;
-  }
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: repeat(4, auto);
   
+    margin: 0 auto;
+  }
+  /* Title panel spans entire height */
   .how-left {
     grid-column: 1;
     grid-row: 1 / span 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid var(--black);
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    border-right: 1px solid var(--color-text);
   }
   .how-left h2 {
-    margin: 0;
-    font-family: var(--fontFamily);
-    font-size: var(--headingFontSize);
-    line-height: var(--headingFontSize);
-    font-weight: 300;
-    text-transform: uppercase;
-    text-align: center;
+    margin: 0; /* reset mobile margins */
   }
-  
+  /* Steps as grid rows */
   .how-right {
     grid-column: 2;
     grid-row: 1 / span 4;
     display: grid;
-    grid-template-rows: inherit;
+    grid-template-rows: repeat(4, 1fr);
   }
-  
   .how-right .step {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--black);
-    position: relative;
+    padding: var(--space-lg) var(--space-xl);
+    border-top: none; /* separators via grid row gaps or explicit borders */
   }
-  .how-right .step:last-child {
-    border-bottom: none;
+  .how-right .step + .step {
+    border-top: 1px solid var(--color-text);
   }
-  
-  .how-right .step h3 {
-    width: 278px;
-    margin: 0 0 0 90px;
-    font-family: var(--fontFamily);
-    font-size: 20px;
-    text-transform: uppercase;
-  }
-  
-  .how-right .step p,
-  .how-right .step a {
-    margin: 0;
-    margin-left: 368px;  /* 90 + 278 */
-  }
-  
-  .how-right .step p {
-    font-family: var(--logoFontFamily);
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
-    width: 414px;
-  }
-  
-  .how-right .step a {
-    display: block;
-    font-family: var(--fontFamily);
-    font-size: 18px;
-    text-decoration: underline;
-    color: var(--black);
-  }
-  
-  .how-right .checkout {
-    align-self: end;
-  }
+}
+
   

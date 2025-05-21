@@ -64,22 +64,22 @@
   width: 100vh;
   height: 2px;
   background-color: var(--color-text);
-  margin-block: var(--space-xl);  /* 45px top & bottom */
+  
 }
 
 /* DESKTOP: two columns, borders and spacing */
 /* Desktop: two-column layout */
 @media (min-width: 768px) {
   .shop-ask-container {
-    flex-direction: row !important;    /* force row */
+    flex-direction: row !important;    
     flex-wrap: nowrap;
     max-width: 1512px;
     margin: 0 auto;
-    gap: 0;                            /* we’ll use divider margins */
+    gap: 0;                            
   }
 
   .shop-ask-container .column {
-    width: 756px;                      /* fixed half-width */
+    width: 756px;                      
     text-align: left;
   }
 

@@ -1,4 +1,4 @@
-/* ——— Popular Produce Section ——— */
+
 .popular-produce {
   padding: var(--space-xxl) var(--space-md);
   background-color: var(--color-secondary-bg);
@@ -37,17 +37,19 @@
   overflow: hidden;
 }
 
-/* Image wrapper keeps a consistent ratio and holds Add button */
+
 .popular-produce .produce-card .image-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 454 / 432;
   overflow: hidden;
+  border-radius: var(--space-sm);
 }
 .popular-produce .produce-card .image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 .popular-produce .produce-card .image-wrapper .add-btn {
     position: absolute;
@@ -99,10 +101,9 @@
   .popular-produce .produce-card {
     flex: none;
     scroll-snap-align: none;
-    /* let card width be defined by grid */
     width: 100%;
   }
-  /* Image wrapper keeps a consistent ratio and holds Add button */
+  
   .popular-produce .produce-card .image-wrapper {
     aspect-ratio: auto;
     width: 100%;

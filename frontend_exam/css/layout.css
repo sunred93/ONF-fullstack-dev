@@ -10,12 +10,10 @@
 .container {
   width: 100%;                    /* fill viewport */
   margin: 0 auto;                 /* center if constrained */
-  padding-inline: var(--space-md);/* horizontal gutter */
-  box-sizing: border-box;         /* include padding in width */
+
 }
 
 /* 2. SECTION SPACING */
 section {
-  padding-block: var(--space-xxl); /* 90px top & bottom */
   box-sizing: border-box;
 }

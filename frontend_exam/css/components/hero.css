@@ -1,3 +1,9 @@
+@media (max-width: 768px) {
+  .hero {
+    background-image: url("pictures/tinified/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
+  }
+}
+
 .hero {
     /* background image */
   background-image: url("../../pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
@@ -48,12 +54,10 @@
 
 /* Desktop enhancements */
 @media (min-width: 768px) {
-  .hero {
-    min-height: 850px;                 /* fixed desktop height */
+  .hero {                 
     padding-block: var(--space-xxl);
   }
   .hero-content {
-    flex-direction: row;               /* horizontal layout */
     align-items: center;
     gap: var(--space-lg);              /* 24px gap between items */
   }

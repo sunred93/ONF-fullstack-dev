@@ -1,16 +1,13 @@
-/* base.css
-   ——————————————————————————————————————————————————————————
-   Design tokens, CSS reset, and base typography
-—————————————————————————————————————————————————————————— */
+
 
 /* ——— Design tokens ——— */
 :root {
   /* Colours  */
-  --beige:    #F7F2DE;
+  --beige:         #F7F2DE;
   --accent-red:    #DC4131;
   --hover-red:     #AE2E21;
-  --color-text:          #0B0A08;
-  --white:  #FFFFFF;
+  --color-text:    #0B0A08;
+  --white:         #FFFFFF;
   --light-blue:    #E1EAF0;
   --green:         #008F51;
 

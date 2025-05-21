@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Oats",
+    "price": 16,
+    "unit": "kg",
+    "weight": "1 kg",
+    "popular": true,
+    "image": "pictures/Images/Product Page/lukasz-rawa-HB_MVtHVMLc-unsplash.jpg"
+  },
+  {
+    "name": "Red onions",
+    "price": 45,
+    "unit": "kg",
+    "weight": "1 kg",
+    "popular": true,
+    "image": "pictures/Images/Product Page/goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg"
+  },
+  {
+    "name": "Garlic",
+    "price": 38,
+    "unit": "kg",
+    "weight": "0.2 kg",
+    "popular": true,
+    "image": "pictures/Images/Product Page/matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg"
+  },
+  {
+    "name": "Potatoes",
+    "price": 20,
+    "unit": "kg",
+    "weight": "1 kg",
+    "image": "pictures/Images/Product Page/rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg"
+  },
+  {
+    "name": "Carrots",
+    "price": 25,
+    "unit": "kg",
+    "weight": "1 kg",
+    "image": "/pictures/Images/Product Page/goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg"
+  }
+]

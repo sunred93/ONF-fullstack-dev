@@ -14,10 +14,7 @@
     <link rel="stylesheet" href="css/components/footer.css" />
     <!-- Product-page specific -->
     <link rel="stylesheet" href="css/components/product-page.css" />
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7c5lai-LaDkLn5bd2UzMrXPEy051klEw&callback=console.debug&libraries=maps,marker&v=beta"
-    ></script>
+    <link rel="stylesheet" href="css/components/info-window.css" />
   </head>
   <body>
     <header>
@@ -56,16 +53,7 @@
           <h2>See our partnering farms</h2>
         </div>
         <div class="farm-right">
-          <gmp-map
-            center="59.365760803222656,10.268869400024414"
-            zoom="14"
-            map-id="DEMO_MAP_ID"
-          >
-            <gmp-advanced-marker
-              position="59.365760803222656,10.268869400024414"
-              title="My location"
-            ></gmp-advanced-marker>
-          </gmp-map>
+          <div id="map" style="width: 100%; height: 100%"></div>
         </div>
       </section>
     </main>
@@ -99,6 +87,6 @@
     </footer>
     <script src="scripts/produce.js"></script>
     <script src="scripts/landingpage.js"></script>
-    <script type="module" src="scripts/map.js"></script>
+    <script src="scripts/map.js"></script>
   </body>
 </html>

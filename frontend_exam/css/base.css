@@ -1,41 +1,39 @@
-
-
 /* ——— Design tokens ——— */
 :root {
   /* Colours  */
-  --beige:         #F7F2DE;
-  --accent-red:    #DC4131;
-  --hover-red:     #AE2E21;
-  --color-text:    #0B0A08;
-  --white:         #FFFFFF;
-  --light-blue:    #E1EAF0;
-  --green:         #008F51;
+  --beige: #f7f2de;
+  --accent-red: #dc4131;
+  --hover-red: #ae2e21;
+  --color-text: #0b0a08;
+  --white: #ffffff;
+  --light-blue: #e1eaf0;
+  --green: #008f51;
 
   /* Typography */
-  --font-logo:       "Frank Ruhl Libre", serif;
-  --font-sans:       "Arimo", sans-serif;
+  --font-logo: "Frank Ruhl Libre", serif;
+  --font-sans: "Arimo", sans-serif;
 
   /* Hero sizes */
-  --fs-hero-xl:      200px;
-  --fs-hero-lg:      75px;
+  --fs-hero-xl: 200px;
+  --fs-hero-lg: 75px;
 
   /* Section headings */
-  --fs-heading:      36px;
-  --fs-subheading:   24px;
-  --fs-step-title:   20px;
+  --fs-heading: 36px;
+  --fs-subheading: 24px;
+  --fs-step-title: 20px;
 
   /* Body text */
-  --fs-body-lg:      20px;
-  --fs-body:         16px;
-  --lh-body:         1.5;
+  --fs-body-lg: 20px;
+  --fs-body: 16px;
+  --lh-body: 1.5;
 
   /* Spacing scale */
-  --space-xs:        4px;
-  --space-sm:        8px;
-  --space-md:        16px;
-  --space-lg:        24px;
-  --space-xl:        45px;
-  --space-xxl:       90px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 45px;
+  --space-xxl: 90px;
 
   /* Breakpoints */
   --bp-sm: 480px;
@@ -47,13 +45,27 @@
 /* ——— Reset and Base Styles ——— */
 
 /* Apply border-box to all elements */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 /* Remove default margins and paddings */
-body, h1, h2, h3, h4, h5, h6,
-p, ul, ol, figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
   padding: 0;
 }
@@ -69,8 +81,14 @@ body {
   background: var(--color-secondary-bg);
 }
 
+main {
+  max-width: 1512px;
+  margin: 0 auto;
+}
+
 /* Remove list styles */
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -89,10 +107,12 @@ button {
 }
 
 /* Images and media scale responsively */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
-  

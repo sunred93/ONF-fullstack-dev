@@ -1,27 +1,27 @@
 header {
-    background-color: var(--beige);
-    display: flex;
-    align-items: center;
-    position: sticky;
-    padding: 0.5rem;
-    top: 0;
-    width: 100%;
-    height: 68px;
-    z-index: 10;
-    border-bottom: 1px solid var(--color-text);
-  }
-  
-  .header-actions {
-   display: flex;
+  background-color: var(--beige);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  padding: 0.5rem;
+  top: 0;
+  width: 100%;
+  height: 68px;
+  z-index: 10;
+  border-bottom: 1px solid var(--color-text);
+}
+
+.header-actions {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 0 var(--space-md)
-  }
-  
-  .logo {
-   position: absolute;
+  padding: 0 var(--space-md);
+}
+
+.logo {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -29,92 +29,91 @@ header {
   font-size: 1.8rem;
   color: var(--color-text);
   white-space: nowrap;
-  }
-  
-  .hamburger-menu-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .shopping-cart {
-    position: relative;
-    padding: 0 15px;
-    height: 30px;
-    border-radius: 16px;
-    background-color: var(--green);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  /* Dropdown Menu */
-  .dropdown-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 475px;
-    height: 100vh;
-    background-color: var(--green);
-    padding: 16px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-  }
-  .dropdown-menu.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-  }
-  
-  .close-menu-btn {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    width: 45px;
-    height: 45px;
-    font-size: 24px;
-    background: transparent;
-    color: var(--black);
-    cursor: pointer;
-  }
-  
-  .menu-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 80px 0 0;
-    padding: 0;
-    flex: 1;
-  }
-  .menu-list li + li {
-    margin-top: 24px;
-  }
-  .menu-list .checkout {
-    margin-top: auto;
-    margin-bottom: 90px;
-  }
-  
-  .dropdown-menu .menu-list a {
-    color: var(--black);
-    font-family: var(--font-sans);
-    font-size: var(--fs-heading);
-    line-height: var(--fs-heading);
-    text-transform: uppercase;
-    text-decoration: none;
-  }
+}
+
+.hamburger-menu-btn {
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.shopping-cart {
+  position: relative;
+  padding: 0 15px;
+  height: 30px;
+  border-radius: 16px;
+  background-color: var(--green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 475px;
+  height: 100vh;
+  background-color: var(--green);
+  padding: 16px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+.dropdown-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.close-menu-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0 0;
+  padding: 0;
+  flex: 1;
+}
+.menu-list li + li {
+  margin-top: 24px;
+}
+.menu-list .checkout {
+  margin-top: auto;
+  margin-bottom: 90px;
+}
+
+.dropdown-menu .menu-list a {
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: var(--fs-heading);
+  line-height: var(--fs-heading);
+  text-transform: uppercase;
+  text-decoration: none;
+}

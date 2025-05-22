@@ -1,0 +1,62 @@
+[
+  {
+    "id": "holt-gaard-undrumsdal",
+    "name": "Holt Gård",
+    "lat": 59.30392,
+    "lng": 10.3275,
+    "address": "Grøumveien 229, 3176 Undrumsdal, Norge",
+    "description": "Historisk gård med fokus på bærekraftig matproduksjon og gårdsbutikk. Kjent for sine økologiske produkter og arrangementer.",
+    "produce_focus": ["Økologiske grønnsaker", "Egg", "Bakst"],
+    "place_id": "ChIJO_jcs_G1RkYRca3CqjkIEto",
+    "website": "https://www.holtgard.no/",
+    "rating": 4.5
+  },
+  {
+    "id": "ramnes-sondre-gaard",
+    "name": "Ramnes Søndre Gård",
+    "lat": 59.34969,
+    "lng": 10.3256,
+    "address": "Ramnesveien 847, 3175 Ramnes, Norge",
+    "description": "Besøksgård med hjerte for kulturarv, folk og dyr. Tilbyr en innholdsrik arena for gode gårdsopplevelser, mestring og trivsel.",
+    "produce_focus": ["Gårdsdyr", "Gårdsbutikk", "Gårdsbakeri"],
+    "place_id": "ChIJSwRGT9XLRkYR_wJEPEncYBk",
+    "website": "http://www.ramnessondre.no/",
+    "rating": 4.8
+  },
+  {
+    "id": "grytebakke-gaard",
+    "name": "Grytebakke gård",
+    "lat": 59.57861,
+    "lng": 10.30141,
+    "address": "Grytebakke 21, 3074 Sande i Vestfold, Norge",
+    "description": "Inn på tunet-gård som tilbyr arbeidstreningstiltak og barneaktiviteter. Har kjøkkenhage, dyr og turmuligheter.",
+    "produce_focus": ["Grønnsaker", "Gårdsdyr", "Arrangementer"],
+    "place_id": "ChIJc1wNhuo6QUYRagpXSOx-SRs",
+    "website": "http://www.grytebakkegaard.no/",
+    "rating": 4.8
+  },
+  {
+    "id": "hem-gaard",
+    "name": "Hem Gård",
+    "lat": 59.32454,
+    "lng": 10.39578,
+    "address": "Hemsveien 1, 3157 Barkåker, Norge",
+    "description": "Gårdsutsalg med diverse produkter. Tilbyr blant annet vedsalg.",
+    "produce_focus": ["Gårdsutsalg", "Ved"],
+    "place_id": "ChIJZS8WBEG1RkYRP4sudQZUtHI",
+    "website": null,
+    "rating": 4.7
+  },
+  {
+    "id": "moyland-gardsbutikk",
+    "name": "Møyland gårdsbutikk",
+    "lat": 59.3035,
+    "lng": 10.16808,
+    "address": "Møylandveien 11, 3158 Andebu, Norge",
+    "description": "Selvbetjent gårdsbutikk som er åpen hver dag. Produserer frittgående egg og eplemost. Tilbyr selvplukk av mais i sesong.",
+    "produce_focus": ["Egg", "Epler", "Eplemost", "Mais"],
+    "place_id": "ChIJPa_891TPRkYRVVzZNj0UcwY",
+    "website": "https://www.hanen.no/bedrift/2605",
+    "rating": 4.9
+  }
+]

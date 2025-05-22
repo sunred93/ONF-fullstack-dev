@@ -28,6 +28,7 @@
     "price": 20,
     "unit": "kg",
     "weight": "1 kg",
+    "popular": false,
     "image": "pictures/Images/Product Page/rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg"
   },
   {
@@ -35,6 +36,7 @@
     "price": 25,
     "unit": "kg",
     "weight": "1 kg",
+    "popular": false,
     "image": "/pictures/Images/Product Page/goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg"
   }
 ]

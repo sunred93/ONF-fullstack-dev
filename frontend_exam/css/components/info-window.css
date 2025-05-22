@@ -1,0 +1,58 @@
+/* Base container for the info window content */
+.info-window-content {
+  max-width: 280px;
+  font-family: Arial, sans-serif;
+  padding: 5px;
+  color: #333; /* Default text color */
+}
+
+/* Heading for the farm name */
+.info-window-content h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 1.2em;
+}
+
+/* Styling for the farm image */
+.info-window-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs for address, description, focus, rating */
+.info-window-content p {
+  margin-top: 0;
+  margin-bottom: 5px; /* Default spacing for paragraphs */
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.3; /* Improve readability */
+}
+
+/* Specific styling for the description paragraph */
+.info-window-content p.description {
+  margin-bottom: 10px; /* More space after description */
+}
+
+/* Styling for strong/bold text */
+.info-window-content strong {
+  color: #333; /* Slightly darker for emphasis */
+}
+
+/* Styling for website link */
+.info-window-content a {
+  color: #007bff; /* Standard link blue */
+  text-decoration: none; /* No underline by default */
+  font-size: 0.9em;
+}
+
+.info-window-content a:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
+
+/* You might want to override some default Google Maps InfoWindow styles if needed */
+/* For example, to remove default padding or border Google might add */
+/* This can be tricky, as Google uses shadow DOM for InfoWindow in some cases */
+/* .gm-style-iw { padding: 0 !important; } */

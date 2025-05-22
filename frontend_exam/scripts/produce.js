@@ -1,10 +1,10 @@
 fetch("json/produce.json")
-  .then(res => res.json())
-  .then(produce => {
+  .then((res) => res.json())
+  .then((produce) => {
     const grid = document.querySelector(".product-grid");
     grid.innerHTML = "";
 
-    produce.forEach(item => {
+    produce.forEach((item) => {
       grid.innerHTML += `
         <div class="produce-card">
           <div class="image-wrapper">
@@ -14,7 +14,6 @@ fetch("json/produce.json")
           <div class="info">
             <div class="title">${item.name}</div>
             <div class="price">${item.price} kr / ${item.unit}</div>
-          </div>
           <div class="weight">${item.weight}</div>
         </div>
       `;
@@ -23,7 +22,7 @@ fetch("json/produce.json")
     const cartCountEl = document.querySelector(".cart-item-count");
     let cartCount = 0;
 
-    document.querySelectorAll(".add-btn").forEach(btn => {
+    document.querySelectorAll(".add-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         cartCount += 1;
         cartCountEl.textContent = cartCount;

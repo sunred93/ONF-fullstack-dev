@@ -1,6 +1,4 @@
-
 .product-page {
-
   margin: 0 auto;
   box-sizing: border-box;
   background: var(--beige);
@@ -32,7 +30,7 @@
 
 .product-page .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 454px));
   gap: 24px;
   padding: var(--space-xl) var(--space-md); /* vertical 45px, horizontal 16px */
   align-items: center;
@@ -41,10 +39,11 @@
 }
 .produce-card .image-wrapper {
   aspect-ratio: 454 / 432;
-  position: relative;   
+  position: relative;
   overflow: hidden;
   border-radius: 16px;
-  max-width: 500px;
+  max-width: 454px;
+  max-height: 432px;
 }
 
 .produce-card .image-wrapper img {
@@ -58,7 +57,7 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 14px;
   padding: 6px 10px;
@@ -70,8 +69,9 @@
 .produce-card .info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 /* Title and price inside info */
@@ -79,17 +79,27 @@
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   font-weight: 700;
+  flex-grow: 1;
 }
 
 .produce-card .info .price {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
+  white-space: nowrap;
 }
 
+.produce-card .weight {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: var(--fs-body);
+  margin-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
 /* ——— Partnering Farms Section ——— */
 .partner-farms {
   display: flex;
-  flex-direction: column;         /* mobile: single column */
+  flex-direction: column; /* mobile: single column */
   justify-content: center;
   background: var(--beige);
   border-top: 1px solid var(--color-text);
@@ -98,17 +108,16 @@
   width: 100%;
   margin: 0 auto;
   gap: var(--space-xl);
-  
 }
 
 /* left panel (heading) */
 .farm-left {
- text-align: center;
- border-bottom: 1px solid var(--color-text);
- padding: var(--space-xl) var(--space-md); /* vertical 45px, horizontal 16px */
+  text-align: center;
+  border-bottom: 1px solid var(--color-text);
+  padding: var(--space-xl) var(--space-md); /* vertical 45px, horizontal 16px */
 }
 .farm-left h2 {
-   font-family: var(--font-sans);
+  font-family: var(--font-sans);
   font-size: var(--fs-heading);
   font-weight: 300;
   text-transform: uppercase;
@@ -117,7 +126,7 @@
 
 /* right panel (map) */
 .farm-right {
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 800px;
@@ -133,30 +142,36 @@
     width: 100%;
     margin: 0 auto;
   }
-  .product-page p{
+  .product-page p {
     max-width: 600px;
     padding: 0 12px;
     margin-bottom: var(--space-lg);
   }
   .product-page .product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 454px));
     gap: var(--space-lg); /* 24px gap */
     justify-content: center;
-    width: 100%;
-
+    padding: var(--space-xl) var(--space-md); /* vertical 45px, horizontal 16px */
     margin: 0 auto;
   }
 
-  .produce-card .image-wrapper {
-  position: relative;
-  width: 100%;    
-  overflow: hidden;
-  border-radius: 16px;
-  aspect-ratio: 454 / 432;
-  max-height: 600px;
+  .produce-card {
+    transition: transform 0.2s ease;
+  }
+  .produce-card:hover {
+    transform: scale(1.02);
   }
 
-   .partner-farms {
+  .produce-card .image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    max-width: 454px;
+    max-height: 432px;
+  }
+
+  .partner-farms {
     flex-direction: row;
     align-items: stretch;
   }
@@ -174,7 +189,5 @@
     padding-left: var(--space-xl);
     border-left: none;
     height: 700px;
-    
   }
-  
 }

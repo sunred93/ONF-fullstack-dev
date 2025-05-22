@@ -55,7 +55,7 @@
 /* Desktop enhancements */
 @media (min-width: 768px) {
   .hero {                 
-    padding-block: var(--space-xxl);
+         padding-block: var(--space-xxl);
   }
   .hero-content {
     align-items: center;

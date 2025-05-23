@@ -1,7 +1,7 @@
-const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
-const panel        = document.querySelector('.dropdown-menu');
-const closeBtn     = document.querySelector('.close-menu-btn');
-const cartCountEl  = document.querySelector('.cart-item-count');
+const hamburgerBtn = document.querySelector(".hamburger-menu-btn");
+const panel = document.querySelector(".dropdown-menu");
+const closeBtn = document.querySelector(".close-menu-btn");
+const cartCountEl = document.querySelector(".cart-item-count");
 let cartCount = 0;
 if (localStorage.getItem("cartCount")) {
   cartCount = parseInt(localStorage.getItem("cartCount"));
@@ -9,21 +9,21 @@ if (localStorage.getItem("cartCount")) {
 }
 
 // open panel
-hamburgerBtn.addEventListener('click', e => {
+hamburgerBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  panel.classList.add('show');
+  panel.classList.add("show");
 });
 
 // close via ✕ button
-closeBtn.addEventListener('click', e => {
+closeBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  panel.classList.remove('show');
+  panel.classList.remove("show");
 });
 
 // close when clicking outside
-document.addEventListener('click', e => {
+document.addEventListener("click", (e) => {
   if (!panel.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    panel.classList.remove('show');
+    panel.classList.remove("show");
   }
 });
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", () => {
     dropdown.classList.remove("show");
   });
-  document.addEventListener("click", e => {
+  document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
       dropdown.classList.remove("show");
     }
@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // — load and display popular produce
   fetch("json/produce.json")
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       const grid = document.querySelector(".popular-produce .produce-grid");
       grid.innerHTML = "";
 
-      const popularItems = data.filter(item => item.popular).slice(0, 3);
+      const popularItems = data.filter((item) => item.popular).slice(0, 3);
 
-      popularItems.forEach(item => {
+      popularItems.forEach((item) => {
         const card = document.createElement("div");
         card.classList.add("produce-card");
         card.innerHTML = `
@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // — Add-to-cart logic for dynamically added buttons
-      document.querySelectorAll(".add-btn").forEach(btn => {
+      document.querySelectorAll(".add-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           cartCount += 1;
           cartCountEl.textContent = cartCount;
           localStorage.setItem("cartCount", cartCount);
 
           btn.textContent = "Added ✓";
-          setTimeout(() => btn.textContent = "Add to basket ↑", 1000);
+          setTimeout(() => (btn.textContent = "Add to basket ↑"), 1000);
         });
       });
     });
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const browseBtn = document.getElementById("browse");
   if (browseBtn) {
     browseBtn.addEventListener("click", () => {
-      window.location.href = 'products.html';
+      window.location.href = "products.html";
     });
   }
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const msg = document.getElementById("subscribe-message");
 
   if (form && msg) {
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       const firstName = form.firstName.value.trim();
       const email = form.email.value.trim();

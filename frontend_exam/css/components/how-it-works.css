@@ -5,23 +5,29 @@
   border-bottom: 1px solid var(--color-text);
   display: flex;
   flex-direction: column;
+  min-height: 785px;
 }
 
-
-.how-it-works{
+.how-it-works {
   box-sizing: border-box;
 }
 
 /* Title area: centered on mobile */
 .how-left {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--color-text);
 }
 .how-left h2 {
   font-family: var(--font-sans);
-  font-size: var(--fs-heading);
-  font-weight: 300;
+  font-size: var(--fs-subheading); /* 24px */
+  font-weight: 400;
   text-transform: uppercase;
-  margin: var(--space-xxl) 0; /* 90px top & bottom */
+  margin-top: var(--space-xxl); /* 90px top */
+  margin-bottom: var(--space-xl); /* 45px bottom */
+  text-align: center;
 }
 
 /* Steps container: vertical list with separators */
@@ -30,7 +36,6 @@
   flex-direction: column;
 }
 .how-right .step {
-  padding-block: var(--space-lg); /* 24px top & bottom */
   position: relative;
 }
 /* Add divider between steps */
@@ -41,54 +46,103 @@
 /* Step heading */
 .how-right .step h3 {
   font-family: var(--font-sans);
-  font-size: var(--fs-step-title);
+  font-size: var(--fs-body-sm);
+  line-height: 1.2;
   text-transform: uppercase;
-  margin: 0 0 var(--space-sm) var(--space-md);
+  margin-top: var(--space-xl); /* 45px */
+  margin-bottom: var(--space-lg); /* 24px */
+  margin-left: var(--space-xl);
+  text-align: left;
+  font-weight: 400;
+  width: 300px;
 }
+
 .how-right .step p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1;
+  text-align: left;
+  margin-left: var(--space-xl);
+  margin-bottom: 24px;
+  width: 300px;
+}
+.how-right .step a {
   font-family: var(--font-logo);
   font-size: var(--fs-body);
-  line-height: 1.5;
-  margin: 0 var(--space-md);
+  font-weight: 300;
+  text-decoration: underline;
+  line-height: 1;
+  text-align: left;
+  padding-top: 16px;
 }
 
 /* DESKTOP: two-column grid for title and steps */
 @media (min-width: 768px) {
   .how-it-works {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 489px 1fr;
     grid-template-rows: repeat(4, auto);
-    padding-left: 0;
-    padding-right: 0;
-  
-    margin: 0 auto;
+    min-height: 785px;
   }
-  /* Title panel spans entire height */
+
   .how-left {
     grid-column: 1;
     grid-row: 1 / span 4;
-    text-align: center;
-    padding: var(--space-xl) var(--space-md);
-    border-right: 1px solid var(--color-text);
-  }
-  .how-left h2 {
-    margin: 0; 
-  }
-  /* Steps as grid rows */
-  .how-right {
-     flex: 1;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid var(--color-text);
-  border-right: 1px solid var(--color-text);
-  }
-  .how-right .step {
-  
-  border-bottom: 1px solid var(--color-text);
-  }
-  .how-right .step + .step {
+    padding: var(--space-xl) var(--space-md); /* 45px top & bottom, 24px left & right */
+    border-left: 1px solid var(--color-text);
     border-bottom: none;
   }
-}
+  .how-left h2 {
+    margin: 0;
+  }
 
-  
+  .how-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--color-text);
+    border-right: 1px solid var(--color-text);
+    min-height: 785px;
+  }
+  .how-right .step {
+    display: flex;
+    flex-direction: row;
+    min-height: 197px;
+  }
+
+  /* Step heading */
+  .how-right .step h3 {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body-lg);
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-top: 87px;
+    margin-bottom: 87px;
+    margin-left: var(--space-xxl);
+    text-align: left;
+    font-weight: 400;
+    width: 278px;
+  }
+
+  .how-right .step p {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--fs-body);
+    line-height: 1;
+    text-align: left;
+    margin-bottom: 45px;
+    margin-top: 45px;
+    width: 414px;
+  }
+  .how-right .step a {
+    font-family: var(--font-logo);
+    font-size: var(--fs-body);
+    font-weight: 300;
+    text-decoration: underline;
+    line-height: 1;
+    text-align: left;
+    margin-bottom: var(--space-xl); /* 45px */
+  }
+}

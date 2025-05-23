@@ -1,69 +1,68 @@
 /* ——— Footer */
 .footer {
-    background-color: var(--accent-red);  /* Accent red from spec */
-    color: var(--white);
-    padding: 90px 24px;
-    box-sizing: border-box;
-    align-items: flex-start;
-  }
-  
-  /* Top brand line */
-  .footer .brand {
-    font-family: var(--fontLogo);
-    font-size: var(--fs-subheading);
-    font-weight: 400;
-    margin-bottom: var(--space-xl); /* 45px */
-    border-bottom: 1px solid rgba(255,255,255,0.5);
-    padding-bottom: 12px;
-  }
-  
-  /* Subscribe block */
-  .footer .subscribe {
-    max-width: 460px;
-    margin: 40px 0 0 0;
-  }
-  
-  .footer .subscribe h2 {
-    font-family: var(--fontFamily);
-    font-size: 36px;
-    line-height: 36px;
-    font-weight: 300;
-    margin-bottom: 12px;
-  }
-  
-  .footer .subscribe p {
-    font-family: var(--logoFontFamily);
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 28px;
-    margin-bottom: 24px;
-    opacity: 0.9;
+  background-color: var(--accent-red); /* Accent red from spec */
+  color: var(--white);
+  padding: 90px 24px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  height: 620px;
+}
 
-  }
-  
-  /* Form styles */
-  .footer .subscribe form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .footer .subscribe input {
-    padding: 12px;
-    font-family: var(--fontFamily);
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .footer .subscribe button {
-    padding: 12px;
-    font-family: var(--font-sans);
-    font-size: 16px;
-    background-color: var(--white);
-    color: var(--color-text);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+/* Top brand line */
+.footer .brand {
+  font-family: var(--fontLogo);
+  font-size: var(--fs-subheading);
+  font-weight: 400;
+  margin-bottom: var(--space-xl); /* 45px */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 12px;
+}
+
+/* Subscribe block */
+.footer .subscribe {
+  max-width: 460px;
+  margin: 40px 0 0 0;
+}
+
+.footer .subscribe h2 {
+  font-family: var(--fontFamily);
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.footer .subscribe p {
+  font-family: var(--logoFontFamily);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+/* Form styles */
+.footer .subscribe form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer .subscribe input {
+  padding: 12px;
+  font-family: var(--fontFamily);
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.footer .subscribe button {
+  padding: 12px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  background-color: var(--white);
+  color: var(--color-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

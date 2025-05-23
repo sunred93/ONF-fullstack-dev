@@ -23,6 +23,7 @@
   --fs-step-title: 20px;
 
   /* Body text */
+  --fs-body-sm: 18px;
   --fs-body-lg: 20px;
   --fs-body: 16px;
   --lh-body: 1.5;
@@ -78,7 +79,7 @@ body {
   font-family: var(--font-sans);
   line-height: var(--lh-body);
   color: var(--color-text);
-  background: var(--color-secondary-bg);
+  background: var(--beige);
 }
 
 main {

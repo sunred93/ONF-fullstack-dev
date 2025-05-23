@@ -5,17 +5,16 @@
 }
 
 .hero {
-    /* background image */
+  /* background image */
   background-image: url("../../pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
   background-size: cover;
-  background-position: center;                     
-  min-height:100vh;  
+  background-position: center;
+  min-height: 850px;
 
   /* Center content */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: var(--space-xxl);     /* 90px top & bottom */
 }
 
 .hero-content {
@@ -23,7 +22,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--space-md);
   border-radius: var(--space-sm);
   color: var(--white);
 }
@@ -31,22 +29,24 @@
 .hero-content h1 {
   font-family: var(--font-logo);
   font-weight: 300;
-  font-size: var(--fs-hero-lg);        /* 75px on mobile */
-  margin: 0 0 var(--space-sm) 0;       /* 8px below heading */
+  font-size: var(--fs-hero-lg); /* 75px on mobile */
+  margin-bottom: 13px;
+  line-height: 1;
 }
 
 .hero-content .verticalLine {
   /* Mobile: horizontal divider */
-  width:2px;
+  width: 2px;
   height: 240px;
   background-color: var(--white);
-  margin: var(--space-xl) 0;           /* 45px around divider */
+  margin: 0;
+  margin-bottom: 34.5px;
 }
 
 .hero-content p {
   font-family: var(--font-sans);
-  font-size: var(--fs-subheading);     /* 24px on mobile */
-  line-height: var(--space-lg);        /* ~24px line-height */
+  font-size: var(--fs-subheading); /* 24px on mobile */
+  line-height: var(--space-lg); /* ~24px line-height */
   text-transform: uppercase;
   margin: 0;
   text-align: center;
@@ -54,28 +54,22 @@
 
 /* Desktop enhancements */
 @media (min-width: 768px) {
-  .hero {                 
-         padding-block: var(--space-xxl);
-  }
   .hero-content {
     align-items: center;
-    gap: var(--space-lg);              /* 24px gap between items */
   }
   .hero-content h1 {
-    font-size: var(--fs-hero-xl);      /* 200px on desktop */
-    margin: 0;                         /* reset bottom margin */
+    font-size: var(--fs-hero-xl); /* 200px on desktop */
+    margin-bottom: 20px;
   }
   .hero-content .verticalLine {
     /* Vertical divider on desktop */
     width: 2px;
     height: 208px;
-    margin: var(--space-xxl) 0;        /* 90px top & bottom */
+    margin-bottom: 56px;
   }
   .hero-content p {
-    font-size: var(--fs-body-lg);      /* 20px on desktop */
+    font-size: var(--fs-heading);
     line-height: 1.2;
     text-align: left;
-    margin: 0;
   }
 }
-

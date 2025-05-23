@@ -1,13 +1,12 @@
-
 .popular-produce {
   padding: var(--space-xxl) var(--space-md);
-  background-color: var(--color-secondary-bg);
+  background-color: var(--white);
   box-sizing: border-box;
 }
 
 .popular-produce h2 {
   font-family: var(--font-sans);
-  font-size: var(--fs-heading);
+  font-size: var(--fs-subheading);
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: var(--space-lg);
@@ -33,15 +32,14 @@
   position: relative;
   border-radius: var(--space-sm);
   background: var(--color-secondary-bg);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
 
-
 .popular-produce .produce-card .image-wrapper {
   position: relative;
-  width: 100%;
-  aspect-ratio: 454 / 432;
+  min-width: 250px;
+  max-height: 321px;
   overflow: hidden;
   border-radius: var(--space-sm);
 }
@@ -49,19 +47,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 }
 .popular-produce .produce-card .image-wrapper .add-btn {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    font-family: var(--fontFamily);
-    font-size: 14px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: var(--fontFamily);
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .popular-produce .produce-card .info {
@@ -83,7 +80,7 @@
   padding: var(--space-sm);
   font-family: var(--font-logo);
   font-size: 14px;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* DESKTOP: grid layout */
@@ -103,7 +100,7 @@
     scroll-snap-align: none;
     width: 100%;
   }
-  
+
   .popular-produce .produce-card .image-wrapper {
     aspect-ratio: auto;
     width: 100%;

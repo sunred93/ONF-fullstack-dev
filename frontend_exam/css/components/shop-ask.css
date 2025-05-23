@@ -1,10 +1,10 @@
 /* Shop & Ask Section */
 .shop-ask-container {
- display: flex;
+  display: flex;
   flex-direction: column;
-  gap: var(--space-xxl);          /* 90px between each column */
-  padding-inline: var(--space-md);
+  padding-inline: var(--space-md); /* 16px*/
   box-sizing: border-box;
+  background-color: var(--white);
 }
 
 .shop-ask-container .column {
@@ -16,29 +16,29 @@
 
 .shop-ask-container .column h2 {
   font-family: var(--font-sans);
-  font-size: var(--fs-heading); /*36 px*/
-  line-height: var(--lh-heading);
+  font-size: var(--fs-subheading); /*24 px*/
+  line-height: 1;
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
-  margin-top: 48px;
-  margin-bottom: var(--space-lg);
+  margin-top: var(--space-xxl); /* 90px top */
+  margin-bottom: var(--space-sm);
 }
 
 .shop-ask-container .column p {
   font-family: var(--font-logo);
   font-weight: 300;
-  font-size: var(fs-body-lg);
+  font-size: var(--fs-body); /* 16px */
   text-align: center;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl); /* 45px */
 }
 
 .shop-ask-container .column img {
-  width: 100%;
-  max-width: 448px;
-  max-height: 250px;
+  width: 359px;
+  height: 250px;
   border-radius: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl); /* 45px */
+
   object-fit: cover;
 }
 
@@ -50,9 +50,9 @@
   color: var(--white);
   font-family: var(--font-sans);
   font-size: var(--fs-body); /* 16px */
-  border-radius: var(--space-md);
+  border-radius: var(--space-sm);
   cursor: pointer;
-  margin-bottom: var(--space-xxl); /* 90px below button */
+  margin-bottom: var(--space-xxl);
 }
 
 .shop-ask-container .column button:hover {
@@ -64,23 +64,34 @@
   width: 100vh;
   height: 2px;
   background-color: var(--color-text);
-  
 }
 
-/* DESKTOP: two columns, borders and spacing */
 /* Desktop: two-column layout */
 @media (min-width: 768px) {
   .shop-ask-container {
-    flex-direction: row !important;    
+    flex-direction: row !important;
     flex-wrap: nowrap;
     max-width: 1512px;
-    margin: 0 auto;
-    gap: 0;                            
   }
 
   .shop-ask-container .column {
-    width: 756px;                      
-    text-align: left;
+    width: 756px;
+  }
+
+  .shop-ask-container .column h2 {
+    font-size: var(--fs-heading);
+  }
+
+  .shop-ask-container .column p {
+    font-size: var(--fs-body-lg); /* 20px */
+  }
+
+  .shop-ask-container .column img {
+    width: 448px;
+    height: 327px;
+    border-radius: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    object-fit: cover;
   }
 
   /* make the divider vertical */
@@ -88,9 +99,7 @@
     width: 2px;
     height: auto;
     align-self: stretch;
-    margin-inline: var(--space-xl);    /* 45px left & right */
+    margin-inline: var(--space-xl); /* 45px left & right */
     background-color: var(--color-text);
   }
 }
-
-  

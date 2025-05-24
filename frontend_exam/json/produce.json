@@ -5,7 +5,7 @@
     "unit": "kg",
     "weight": "1 kg",
     "popular": true,
-    "image": "pictures/Images/Product Page/lukasz-rawa-HB_MVtHVMLc-unsplash.jpg"
+    "image": "pictures/tinified/lukasz-rawa-HB_MVtHVMLc-unsplash.jpg"
   },
   {
     "name": "Red onions",
@@ -13,7 +13,7 @@
     "unit": "kg",
     "weight": "1 kg",
     "popular": true,
-    "image": "pictures/Images/Product Page/goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg"
+    "image": "pictures/tinified/goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg"
   },
   {
     "name": "Garlic",
@@ -21,7 +21,7 @@
     "unit": "kg",
     "weight": "0.2 kg",
     "popular": true,
-    "image": "pictures/Images/Product Page/matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg"
+    "image": "pictures/tinified/matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg"
   },
   {
     "name": "Potatoes",
@@ -29,7 +29,7 @@
     "unit": "kg",
     "weight": "1 kg",
     "popular": false,
-    "image": "pictures/Images/Product Page/rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg"
+    "image": "pictures/tinified/rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg"
   },
   {
     "name": "Carrots",
@@ -37,6 +37,6 @@
     "unit": "kg",
     "weight": "1 kg",
     "popular": false,
-    "image": "/pictures/Images/Product Page/goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg"
+    "image": "pictures/tinified/goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg"
   }
 ]

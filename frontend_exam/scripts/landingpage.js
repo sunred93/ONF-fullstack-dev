@@ -1,116 +1,120 @@
-const hamburgerBtn = document.querySelector(".hamburger-menu-btn");
-const panel = document.querySelector(".dropdown-menu");
-const closeBtn = document.querySelector(".close-menu-btn");
-const cartCountEl = document.querySelector(".cart-item-count");
-let cartCount = 0;
-if (localStorage.getItem("cartCount")) {
-  cartCount = parseInt(localStorage.getItem("cartCount"));
-  cartCountEl.textContent = cartCount;
+document.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  initMenu();
+  initCart();
+  initProduceSlider();
+  initBrowseButton();
+  initNewsletterForm();
 }
 
-// open panel
-hamburgerBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  panel.classList.add("show");
-});
-
-// close via ✕ button
-closeBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  panel.classList.remove("show");
-});
-
-// close when clicking outside
-document.addEventListener("click", (e) => {
-  if (!panel.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    panel.classList.remove("show");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // — menu toggle
+function initMenu() {
   const menuBtn = document.querySelector(".hamburger-menu-btn");
-  const dropdown = document.querySelector(".dropdown-menu");
+  const menu = document.querySelector(".dropdown-menu");
   const closeBtn = document.querySelector(".close-menu-btn");
 
-  menuBtn.addEventListener("click", () => {
-    dropdown.classList.add("show");
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
   });
-  closeBtn.addEventListener("click", () => {
-    dropdown.classList.remove("show");
+
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.remove("show");
   });
+
   document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
-      dropdown.classList.remove("show");
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.classList.remove("show");
     }
   });
+}
 
-  // — load and display popular produce
+function initCart() {
+  const countEl = document.querySelector(".cart-item-count");
+  let count = parseInt(localStorage.getItem("cartCount")) || 0;
+  countEl.textContent = count;
+
+  // delegates all "Add to basket" buttons
+  document.body.addEventListener("click", (e) => {
+    if (!e.target.matches(".add-btn")) return;
+    count++;
+    countEl.textContent = count;
+    localStorage.setItem("cartCount", count);
+    e.target.textContent = "Added ✓";
+    setTimeout(() => (e.target.textContent = "Add to basket ↑"), 1000);
+  });
+}
+
+function initProduceSlider() {
   fetch("json/produce.json")
-    .then((res) => res.json())
+    .then((r) => r.json())
     .then((data) => {
-      const grid = document.querySelector(".popular-produce .produce-grid");
-      grid.innerHTML = "";
+      const items = data.filter((p) => p.popular).slice(0, 3);
+      const wrapper = document.querySelector(".produce-swiper .swiper-wrapper");
+      wrapper.innerHTML = items.map(renderSlide).join("");
 
-      const popularItems = data.filter((item) => item.popular).slice(0, 3);
-
-      popularItems.forEach((item) => {
-        const card = document.createElement("div");
-        card.classList.add("produce-card");
-        card.innerHTML = `
-          <div class="image-wrapper">
-            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-            <button class="add-btn">Add to basket ↑</button>
-          </div>
-          <div class="info">
-            <div class="title">${item.name}</div>
-            <div class="price">${item.price} kr / ${item.unit}</div>
-          </div>
-          <div class="weight">${item.weight}</div>
-        `;
-        grid.appendChild(card);
+      new Swiper(".produce-swiper", {
+        loop: false,
+        spaceBetween: 30,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          480: { slidesPerView: 2 },
+          769: { slidesPerView: 3 },
+        },
       });
+    })
+    .catch((err) => console.error("Produce load error:", err));
+}
 
-      // — Add-to-cart logic for dynamically added buttons
-      document.querySelectorAll(".add-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          cartCount += 1;
-          cartCountEl.textContent = cartCount;
-          localStorage.setItem("cartCount", cartCount);
+function renderSlide(item) {
+  return `
+    <div class="swiper-slide produce-slide">
+      <div class="produce-card">
+        <div class="image-wrapper">
+          <img src="${item.image}" alt="${item.name}" loading="lazy">
+          <button class="add-btn">Add to basket ↑</button>
+        </div>
+        <div class="info">
+          <div class="title">${item.name}</div>
+          <div class="price">${item.price} kr / ${item.unit}</div>
+        </div>
+        <div class="weight">${item.weight}</div>
+      </div>
+    </div>
+  `;
+}
 
-          btn.textContent = "Added ✓";
-          setTimeout(() => (btn.textContent = "Add to basket ↑"), 1000);
-        });
-      });
-    });
+function initBrowseButton() {
+  const btn = document.getElementById("browse");
+  btn?.addEventListener("click", () => {
+    window.location.href = "products.html";
+  });
+}
 
-  // — browse button
-  const browseBtn = document.getElementById("browse");
-  if (browseBtn) {
-    browseBtn.addEventListener("click", () => {
-      window.location.href = "products.html";
-    });
-  }
-
-  // — newsletter form
+function initNewsletterForm() {
   const form = document.getElementById("subscribe-form");
   const msg = document.getElementById("subscribe-message");
+  if (!form || !msg) return;
 
-  if (form && msg) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const firstName = form.firstName.value.trim();
-      const email = form.email.value.trim();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fn = form.firstName.value.trim();
+    const em = form.email.value.trim();
 
-      if (!firstName || !email) {
-        msg.textContent = "Please fill in both fields.";
-        msg.style.color = "orange";
-        return;
-      }
+    if (!fn || !em) {
+      msg.textContent = "Please fill in both fields.";
+      msg.style.color = "orange";
+      return;
+    }
 
-      msg.textContent = `Thanks for subscribing, ${firstName}!`;
-      msg.style.color = "lightgreen";
-      form.reset();
-    });
-  }
-});
+    msg.textContent = `Thanks for subscribing, ${fn}!`;
+    msg.style.color = "lightgreen";
+    form.reset();
+  });
+}

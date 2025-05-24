@@ -19,6 +19,10 @@
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
@@ -140,7 +144,16 @@
       </section>
       <section class="popular-produce">
         <h2>Popular Produce</h2>
-        <div class="produce-grid"></div>
+
+        <!-- Swiper container -->
+        <div class="swiper produce-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slides injected here -->
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </section>
     </main>
     <footer class="footer">
@@ -170,6 +183,7 @@
         <div id="subscribe-message" aria-live="polite"></div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="scripts\landingpage.js"></script>
   </body>
 </html>

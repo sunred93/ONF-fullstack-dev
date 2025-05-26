@@ -13,21 +13,72 @@
   text-align: left;
 }
 
+.popular-produce{
+  overflow: hidden; 
+  .produce-swiper{
+    overflow:visible;
+  }
+}
+
+
 .produce-slide {
-  .produce-card {
-    .image-wrapper {
+   .produce-card{
+     .image-wrapper{
+      position: relative;
       img {
-        aspect-ratio: 250/321;
+        aspect-ratio: 4/5;
         object-fit: cover;
         border-radius: var(--space-sm);
         @media (min-width: 769px) {
-          aspect-ratio: 454/432;
+          aspect-ratio: 1/1;
         }
       }
     }
   }
 }
 
+.produce-card .image-wrapper .add-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0);
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: var(--space-xl);
+  cursor: pointer;
+}
+
+/* Style for product info block */
+.produce-card .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px var(--space-sm) 14px;
+  flex-wrap: wrap;
+}
+
+/* Title and price inside info */
+.produce-card .info .title {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  flex-grow: 1;
+}
+
+.produce-card .info .price {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  white-space: nowrap;
+}
+
+.produce-card .weight {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: var(--fs-body);
+  padding: 0 var(--space-sm) ;
+}
 /* DESKTOP: grid layout */
 @media (min-width: 769px) {
   .produce-slide {

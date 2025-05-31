@@ -12,37 +12,37 @@
 }
 
 #chatbot {
-  height: 100vh;
   position: fixed;
   width: 100%;
-  top: 0;
-  left: 0;
+  height: 100%;
   z-index: 9;
+  border: 0;
+  overflow: hidden;
 
   @media (min-width: 769px) {
-    width: 508px;
-    height: 716px;
     border-radius: var(--space-md);
-    top: 140px;
-    bottom: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 0;
   }
 }
 
 .chat-container {
   display: flex;
-  height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
+  height: 100%;
 }
 
-#chat-box {
+#chatBox {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
-  max-height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  @media (min-width: 769px) {
+  }
 }
 
 .chat-input {

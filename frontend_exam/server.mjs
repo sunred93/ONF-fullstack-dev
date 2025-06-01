@@ -8,10 +8,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// allow your frontend origin
 app.use(cors({ origin: "http://localhost:5500" }));
 
-// serve static files
+// for static files
 app.use(
   express.static(
     "C:\\Users\\Lars\\Documents\\GitHub\\ONF-fullstack-dev\\frontend_exam"
@@ -25,21 +24,26 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Loads your catalog once at startup
+// Loads the produce catalog
 const produceData = JSON.parse(
   fs.readFileSync(new URL("./json/produce.json", import.meta.url), "utf-8")
 );
+const partneringFarmsData = JSON.parse(
+  fs.readFileSync(new URL("./json/farms.json", import.meta.url), "utf-8")
+);
 
-// Turns it into a simple bullet list
 const produceList = produceData
   .map((p) => `- ${p.name}: ${p.description}`)
   .join("\n");
 
-// 4) Chat endpoint
-app.post("/api/chat", async (req, res) => {
-  const { message, history = [] } = req.body;
+const partneringFarmsList = partneringFarmsData
+  .map((f) => `- ${f.name}: ${f.description}`)
+  .join("\n");
 
-  // Builds the messages array
+app.post("/api/chat", async (req, res) => {
+  const { message, chatHistory = [] } = req.body;
+
+  // message array
   const messages = [
     {
       role: "system",
@@ -47,6 +51,7 @@ app.post("/api/chat", async (req, res) => {
 
 Catalog:
 ${produceList}
+${partneringFarmsList}
 
 How the site works:
 - Order groceries  
@@ -63,7 +68,7 @@ Assistant guidelines:
 - If a user asks about something not listed, politely let them know it’s unavailable.
 - You may also give general produce advice (storage tips, seasonality, etc.).`,
     },
-    ...history,
+    ...chatHistory,
     { role: "user", content: message },
   ];
 
@@ -71,11 +76,10 @@ Assistant guidelines:
     const completion = await openai.chat.completions.create({
       model: "gpt-4",
       messages: messages,
-      temperature: 0.7, // optional: controls creativity
-      max_tokens: 500, // optional: caps length
+      temperature: 0.7,
+      max_tokens: 500,
     });
 
-    // 8) Sends back the fram assistant’s reply
     const reply = completion.choices[0].message.content;
     res.json({ reply });
   } catch (err) {

@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", init);
-
 function init() {
   initMenu();
   initCart();
-  initProduce();
-  initBrowseButton();
   initNewsletterForm();
 }
 
@@ -35,44 +32,6 @@ function initCart() {
     const cart = getCart(); // global getCart()
     updateCartCount(cart); // global updateCartCount()
   }
-}
-
-function initProduce() {
-  fetch("json/produce.json")
-    .then((res) => res.json())
-    .then((produce) => {
-      const grid = document.querySelector(".product-grid");
-      grid.innerHTML = "";
-
-      produce.forEach((item) => {
-        grid.innerHTML += `
-          <div class="produce-card">
-            <div class="image-wrapper">
-              <img src="${item.image}" alt="${item.name}" />
-              <button class="add-btn"
-                data-id="${item.name}"
-                data-name="${item.name}"
-                data-price="${item.price}"
-                data-unit="${item.unit}"
-                data-weight="${item.weight}"
-                data-image="${item.image}">
-                Add to basket ↑</button>
-            </div>
-            <div class="info">
-              <div class="title">${item.name}</div>
-              <div class="price">${item.price} kr / ${item.unit}</div>
-            <div class="weight">${item.weight}</div>
-          </div>
-        `;
-      });
-    });
-}
-
-function initBrowseButton() {
-  const btn = document.getElementById("browse");
-  btn?.addEventListener("click", () => {
-    window.location.href = "products.html";
-  });
 }
 
 function initNewsletterForm() {

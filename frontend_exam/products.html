@@ -11,6 +11,7 @@
 
     <!-- Components -->
     <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/cart.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="stylesheet" href="css/components/chatbot.css" />
     <!-- Product-page specific -->
@@ -19,6 +20,7 @@
   </head>
   <body>
     <header>
+      <!-- menu dropdown-->
       <div class="logo"><a href="index.html" class="logo">FRAM</a></div>
       <div class="header-actions">
         <nav class="hamburger-menu-btn">☰</nav>
@@ -32,6 +34,24 @@
             <li><a href="chat.html">Chat</a></li>
             <li class="checkout"><a href="cart.html">Checkout</a></li>
           </ul>
+        </div>
+      </div>
+      <!-- Cart Dropdown -->
+      <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-dropdown-header">
+          <h3>FRAM Cart</h3>
+          <button class="close-cart-dropdown" aria-label="close cart dropdown">
+            ✕
+          </button>
+        </div>
+        <div id="cartDropdownList" class="cart-dropdown-list">
+          <p class="cart-empty-message">cart is empty.</p>
+        </div>
+        <div class="cart-dropdown-footer">
+          <div class="cart-total">
+            <p>Total: <span id="cartDropdownTotal">0.00</span> kr</p>
+          </div>
+          <button id="gotoheckout" class="checkout-button">Checkout</button>
         </div>
       </div>
     </header>
@@ -113,6 +133,7 @@
         <div id="subscribe-message" aria-live="polite"></div>
       </div>
     </footer>
+    <script src="scripts/cart.js"></script>
     <script src="scripts/produce.js"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/chatbot.js"></script>

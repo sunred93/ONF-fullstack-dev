@@ -31,19 +31,10 @@ function initMenu() {
 }
 
 function initCart() {
-  const countEl = document.querySelector(".cart-item-count");
-  let count = parseInt(localStorage.getItem("cartCount")) || 0;
-  countEl.textContent = count;
-
-  // delegates all "Add to basket" buttons
-  document.body.addEventListener("click", (e) => {
-    if (!e.target.matches(".add-btn")) return;
-    count++;
-    countEl.textContent = count;
-    localStorage.setItem("cartCount", count);
-    e.target.textContent = "Added ✓";
-    setTimeout(() => (e.target.textContent = "Add to basket ↑"), 1000);
-  });
+  if (typeof updateCartCount === "function") {
+    const cart = getCart(); // global getCart()
+    updateCartCount(cart); // global updateCartCount()
+  }
 }
 
 function initProduceSlider() {
@@ -73,7 +64,14 @@ function renderSlide(item) {
       <div class="produce-card">
         <div class="image-wrapper">
           <img src="${item.image}" alt="${item.name}" loading="lazy">
-          <button class="add-btn">Add to basket ↑</button>
+          <button class="add-btn"
+            data-id="${item.name}"
+            data-name="${item.name}"
+            data-price="${item.price}"
+            data-unit="${item.unit}"
+            data-weight="${item.weight}"
+            data-image="${item.image}">
+            Add to basket ↑</button>
         </div>
         <div class="info">
           <div class="title">${item.name}</div>

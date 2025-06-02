@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRAM</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/cart.css" />
+    <link rel="stylesheet" href="css/components/hero.css" />
+    <link rel="stylesheet" href="css/components/shop-ask.css" />
+    <link rel="stylesheet" href="css/components/how-it-works.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/components/popular-produce.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/chatbot.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo"><a href="index.html" class="logo">FRAM</a></div>
+      <div class="header-actions">
+        <nav class="hamburger-menu-btn">☰</nav>
+        <div class="shopping-cart">
+          <span class="cart-item-count">0</span>
+        </div>
+
+        <!-- dropdown panel -->
+        <div class="dropdown-menu">
+          <button class="close-menu-btn" aria-label="Close menu">✕</button>
+          <ul class="menu-list">
+            <li><a href="products.html">Products</a></li>
+            <li><button id="chatMenuItem">Chat</button></li>
+            <li class="checkout"><a href="cart.html">Checkout</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Cart Dropdown -->
+      <div class="cart-dropdown" id="cartDropdown">
+        <div class="cart-dropdown-header">
+          <h3>FRAM Cart</h3>
+          <button class="close-cart-dropdown" aria-label="close cart dropdown">
+            ✕
+          </button>
+        </div>
+        <div id="cartDropdownList" class="cart-dropdown-list">
+          <p class="cart-empty-message">cart is empty.</p>
+        </div>
+        <div class="cart-dropdown-footer">
+          <div class="cart-total">
+            <p>Total: <span id="cartDropdownTotal">0.00</span> kr</p>
+          </div>
+          <button id="gotoheckout" class="checkout-button">
+            <a href="cart.html">Checkout</a>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1>FRAM Cart</h1>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="brand">FRAM</div>
+        <div class="subscribe">
+          <h2>Stay Updated</h2>
+          <p>
+            Sign up for our newsletter to be the first<br />
+            to know about new produce or other <br />
+            exciting news!
+          </p>
+          <form id="subscribe-form">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="E-mail address"
+              required
+            />
+            <button type="submit">Send</button>
+          </form>
+          <div id="subscribe-message" aria-live="polite"></div>
+        </div>
+      </div>
+    </footer>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/checkout.js"></script>
+    <script src="scripts/chatbot.js"></script>
+  </body>
+</html>

@@ -107,7 +107,7 @@ function initNewsletterForm() {
     }
 
     msg.textContent = `Thanks for subscribing, ${fn}!`;
-    msg.style.color = "lightgreen";
+    msg.style.color = "var(--green)";
     form.reset();
   });
 }

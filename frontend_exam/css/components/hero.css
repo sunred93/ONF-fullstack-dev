@@ -9,7 +9,8 @@
   background-image: url("../../pictures/Images/Landing Page/markus-spiske-WcLzVLbUP5g-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 850px;
+  min-height: 579px;
+  width: 100%;
 
   /* Center content */
   display: flex;
@@ -18,7 +19,6 @@
 }
 
 .hero-content {
-  /* Flex container for hero items */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@
 .hero-content h1 {
   font-family: var(--font-logo);
   font-weight: 300;
-  font-size: var(--fs-hero-lg); /* 75px on mobile */
+  font-size: var(--fs-hero-lg);
   margin-bottom: 13px;
   line-height: 1;
 }
@@ -45,15 +45,18 @@
 
 .hero-content p {
   font-family: var(--font-sans);
-  font-size: var(--fs-subheading); /* 24px on mobile */
-  line-height: var(--space-lg); /* ~24px line-height */
+  font-size: var(--fs-subheading);
+  line-height: var(--space-lg);
   text-transform: uppercase;
   margin: 0;
   text-align: center;
 }
 
 /* Desktop enhancements */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
+  .hero {
+    min-height: 850px;
+  }
   .hero-content {
     align-items: center;
   }

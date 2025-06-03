@@ -53,6 +53,7 @@ header {
   justify-content: center;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .dropdown-menu {
@@ -62,7 +63,7 @@ header {
   height: 100vh;
   width: 100%;
   background-color: var(--green);
-  padding: 16px;
+  padding: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -81,17 +82,44 @@ header {
   pointer-events: auto;
   transform: translateX(0);
 }
+.dropdown-menu-header {
+  display: flex;
+  justify-content: space-between; /* Positions X and spacer at ends, logo centers if it takes space */
+  align-items: center;
+  padding: 0 var(--space-md); /* Similar to main header's horizontal padding */
+  height: 68px; /* Match main header height for consistency */
+  border-bottom: 1px solid var(--color-text);
+  flex-shrink: 0; /* Prevent this header from shrinking */
+}
 
 .close-menu-btn {
-  position: absolute;
-  top: 16px;
-  left: 16px;
   width: 45px;
   height: 45px;
   font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: var(--black);
   cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-menu-logo {
+  font-family: var(--font-logo);
+  font-size: 30px;
+  color: var(--color-text);
+  font-weight: 300;
+  text-align: center;
+  flex-grow: 1;
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.dropdown-menu-spacer {
+  width: 45px;
+  height: 45px;
 }
 
 .menu-list {

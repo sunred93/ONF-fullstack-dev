@@ -32,7 +32,7 @@
 
 .order-summary h2,
 .customer-and-payment-details h2 {
-  font-family: var(--font-sans, "Arimo", sans-serif);
+  font-family: var(--font-sans);
   font-size: var(--fs-subheading, 24px);
   text-transform: uppercase;
   font-weight: 400;
@@ -40,7 +40,7 @@
   margin-top: 0;
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border-color, #eee);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .checkout-order-list .cart-empty-message.show {
@@ -59,7 +59,7 @@
   display: flex;
   align-items: flex-start;
   padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--border-color, #efefef);
+  border-bottom: 1px solid var(--border-color);
 }
 .checkout-item:last-child {
   border-bottom: none;
@@ -83,7 +83,7 @@
 
 .checkout-item-name {
   font-weight: bold;
-  font-size: var(--fs-body-lg, 18px);
+  font-size: var(--fs-body-lg);
   margin: 0 0 5px 0;
   color: var(--color-text);
 }

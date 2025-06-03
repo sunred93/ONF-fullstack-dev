@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/components/hero.css" />
     <link rel="stylesheet" href="css/components/shop-ask.css" />
     <link rel="stylesheet" href="css/components/how-it-works.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/components/popular-produce.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="stylesheet" href="css/components/chatbot.css" />
@@ -30,14 +29,24 @@
     <header>
       <div class="logo"><a href="index.html" class="logo">FRAM</a></div>
       <div class="header-actions">
-        <nav class="hamburger-menu-btn">☰</nav>
-        <div class="shopping-cart">
+        <button
+          class="hamburger-menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <button class="shopping-cart" aria-label="View shopping cart">
           <span class="cart-item-count">0</span>
-        </div>
+        </button>
 
         <!-- dropdown panel -->
         <div class="dropdown-menu">
-          <button class="close-menu-btn" aria-label="Close menu">✕</button>
+          <div class="dropdown-menu-header">
+            <button class="close-menu-btn" aria-label="Close menu">✕</button>
+            <span class="dropdown-menu-logo">FRAM</span>
+            <span class="dropdown-menu-spacer"></span>
+          </div>
           <ul class="menu-list">
             <li><a href="products.html">Products</a></li>
             <li><button id="chatMenuItem">Chat</button></li>
@@ -173,9 +182,16 @@
         </div>
       </section>
     </main>
-    <button id="chat-toggle">💬</button>
-    <dialog id="chatbot">
+    <button id="chat-toggle" aria-label="Open chat assistant">💬</button>
+    <dialog id="chatbot" aria-label="Chat with FRAM assistant">
       <div class="chat-container">
+        <button
+          class="chatbot-close-button"
+          id="closeChatDialogBtn"
+          aria-label="Close chat"
+        >
+          ✕
+        </button>
         <div class="chat-box" id="chatBox">
           <!--here comes the messages-->
         </div>

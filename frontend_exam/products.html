@@ -7,8 +7,6 @@
 
     <!-- Core styles -->
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
-
     <!-- Components -->
     <link rel="stylesheet" href="css/components/header.css" />
     <link rel="stylesheet" href="css/components/cart.css" />
@@ -20,29 +18,40 @@
   </head>
   <body>
     <header>
-      <!-- menu dropdown-->
       <div class="logo"><a href="index.html" class="logo">FRAM</a></div>
       <div class="header-actions">
-        <nav class="hamburger-menu-btn">☰</nav>
-        <div class="shopping-cart">
+        <button
+          class="hamburger-menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <button class="shopping-cart" aria-label="View shopping cart">
           <span class="cart-item-count">0</span>
-        </div>
+        </button>
+
+        <!-- dropdown panel -->
         <div class="dropdown-menu">
-          <button class="close-menu-btn" aria-label="Close menu">✕</button>
+          <div class="dropdown-menu-header">
+            <button class="close-menu-btn" aria-label="Close menu">✕</button>
+            <span class="dropdown-menu-logo">FRAM</span>
+            <span class="dropdown-menu-spacer"></span>
+          </div>
           <ul class="menu-list">
             <li><a href="products.html">Products</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li class="checkout"><a href="cart.html">Checkout</a></li>
+            <li><button id="chatMenuItem">Chat</button></li>
+            <li class="checkout"><a href="checkout.html">Checkout</a></li>
           </ul>
         </div>
       </div>
       <!-- Cart Dropdown -->
       <div class="cart-dropdown" id="cartDropdown">
         <div class="cart-dropdown-header">
-          <h3>FRAM Cart</h3>
           <button class="close-cart-dropdown" aria-label="close cart dropdown">
             ✕
           </button>
+          <h3>FRAM Cart</h3>
         </div>
         <div id="cartDropdownList" class="cart-dropdown-list">
           <p class="cart-empty-message">cart is empty.</p>
@@ -79,8 +88,15 @@
       </section>
     </main>
     <button id="chat-toggle">💬</button>
-    <dialog id="chatbot">
+    <dialog id="chatbot" aria-label="Chat with FRAM assistant">
       <div class="chat-container">
+        <button
+          class="chatbot-close-button"
+          id="closeChatDialogBtn"
+          aria-label="Close chat"
+        >
+          ✕
+        </button>
         <div class="chat-box" id="chatBox"></div>
         <div class="chat-input">
           <input

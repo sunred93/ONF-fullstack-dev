@@ -6,7 +6,6 @@
     <title>FRAM</title>
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/components/header.css" />
     <link rel="stylesheet" href="css/components/cart.css" />
     <link rel="stylesheet" href="css/components/checkout.css" />
@@ -34,7 +33,11 @@
 
         <!-- dropdown panel -->
         <div class="dropdown-menu">
-          <button class="close-menu-btn" aria-label="Close menu">✕</button>
+          <div class="dropdown-menu-header">
+            <button class="close-menu-btn" aria-label="Close menu">✕</button>
+            <span class="dropdown-menu-logo">FRAM</span>
+            <span class="dropdown-menu-spacer"></span>
+          </div>
           <ul class="menu-list">
             <li><a href="products.html">Products</a></li>
             <li><button id="chatMenuItem">Chat</button></li>
@@ -65,7 +68,7 @@
     </header>
     <main class="main-container">
       <section class="checkout-section">
-        <h1>FRAM</h1>
+        <h1>checkout</h1>
         <div class="checkout-layout">
           <div class="order-summary">
             <h2>Order Summary</h2>

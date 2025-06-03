@@ -252,12 +252,16 @@ This process demonstrates clear progress from initial setup and design to the im
 ## Challenges Faced & Solutions
 
 A big challenge for me was the chatbot dialog styling, I could not make the messages scrollable and it took alot of time, effort, guidance and help to figure it out. I tried solutions given by teacher and friends working with web development, tried chatgpt, google gemini and so on. In the end I stumbled on the solution:
-"/_ “Spacer” that sits above every real message and grows,
-forcing the real messages against the bottom of #chatBox _/
+
+```
+"/* “Spacer” that sits above every real message and grows,
+forcing the real messages against the bottom of #chatBox */
 #chatBox::before {
 content: "";
 flex: 1 1 auto;
 }"
+```
+
 the solution was given by chatgpt, but with several different prompts.
 
 ## Resources Used

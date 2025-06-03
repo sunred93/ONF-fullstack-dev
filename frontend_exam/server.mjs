@@ -11,11 +11,7 @@ const port = process.env.PORT || 3000;
 app.use(cors({ origin: "http://localhost:5500" }));
 
 // for static files
-app.use(
-  express.static(
-    "C:\\Users\\Lars\\Documents\\GitHub\\ONF-fullstack-dev\\frontend_exam"
-  )
-);
+app.use(express.static("./"));
 
 app.use(express.json());
 
@@ -49,9 +45,13 @@ app.post("/api/chat", async (req, res) => {
       role: "system",
       content: `You are FRAM, a friendly adviser for the produce-commerce site FRAM.
 
-Catalog:
+Our Produce and Partnering Farms:
+We offer the following produce, sourced directly from our partnering farms:
 ${produceList}
+
+Our partnering farms are:
 ${partneringFarmsList}
+When asked about the farms, you should confirm they are our partnering farms and the source of our listed produce.
 
 How the site works:
 - Order groceries  
@@ -63,7 +63,7 @@ How the site works:
 
 Assistant guidelines:
 - Greet every user warmly and offer assistance.
-- Provide accurate info based solely on the catalog above.
+- Provide accurate info based solely on the information above.
 - You cannot browse the internet or access real-time data.
 - If a user asks about something not listed, politely let them know it’s unavailable.
 - You may also give general produce advice (storage tips, seasonality, etc.).`,

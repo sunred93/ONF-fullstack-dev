@@ -65,56 +65,65 @@ This Project was developed for the exam of the Frontend essentials course in Osl
 
 ## Project Structure
 
-.
-├── css/ # Contains all CSS stylesheets
-│ ├── base.css # Base styles, variables, and resets
-│ ├── layout.css # Global layout and structural styles
-│ └── components/ # Styles for individual UI components
-│ ├── cart.css # Styling for the shopping cart dropdown
-│ ├── chatbot.css # Styling for the AI chatbot dialog
-│ ├── checkout.css # Styling for the checkout page
-│ ├── footer.css # Styling for the footer section
-│ ├── header.css # Styling for the header and navigation
-│ ├── hero.css # Styling for the hero section
-│ ├── how-it-works.css # Styling for the "How it works" section
-│ ├── info-window.css # Styling for Google Maps info windows
-│ ├── popular-produce.css # Styling for the popular produce slider
-│ ├── product-page.css # Styling for the product listing page
-│ └── shop-ask.css # Styling for the "Shop & Ask" section
-├── json/ # Stores local JSON data
-│ ├── farms.json # Data for partnering farms (used by map and chatbot)
-│ └── produce.json # Data for available produce (used by product listings, popular produce slider, and chatbot)
-├── pictures/ # Image assets
-│ ├── Images/ # High-resolution images
-│ │ └── Landing Page/
-│ │ ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg # Hero image
-│ │ ├── nina-luong-dp06f70Eyvc-unsplash.jpg # Shop section image
-│ │ └── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg # Ask section image
-│ └── tinified/ # Optimized/compressed images for web (e.g., smaller sizes for mobile or lazy loading)
-│ ├── goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg # Red onions image
-│ ├── goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg # Carrots image
-│ ├── lukasz-rawa-HB_MVtHVMLc-unsplash.jpg # Oats image
-│ ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg # Hero image (tinified)
-│ ├── matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg # Garlic image
-│ ├── nina-luong-dp06f70Eyvc-unsplash.jpg # Shop section image (tinified)
-│ ├── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg # Ask section image (tinified)
-│ └── rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg # Potatoes image
-├── scripts/ # Contains all JavaScript files
-│ ├── cart.js # Manages shopping cart logic (add, remove, update quantity, localStorage)
-│ ├── chatbot.js # Handles AI chatbot frontend logic and communication with backend
-│ ├── checkout.js # Logic for the checkout page, displaying cart items and form handling
-│ ├── landingpage.js # JavaScript for the main landing page (e.g., Swiper slider, button actions)
-│ ├── map.js # Google Maps integration, displaying farm locations and info windows
-│ ├── produce.js # Logic for rendering the product listing page
-│ └── test.js # (Optional) JavaScript for testing purposes or early development
-├── .env.example # Example environment variables file (for backend API keys)
-├── .gitignore # Specifies intentionally untracked files to ignore by Git
-├── checkout.html # HTML page for the shopping cart checkout process
-├── index.html # Main landing page of the webshop
-├── package.json # Node.js project metadata and dependencies for the backend server
-├── package-lock.json # Records the exact dependency tree created during installation
-├── products.html # HTML page for Browse available produce and viewing farm map
-└── server.mjs # Node.js backend server for handling API requests (e.g., chatbot)
+```
+├── css/                             # Contains all CSS stylesheets
+│   ├── base.css                     # Base styles, variables, and resets
+│   ├── layout.css                   # Global layout and structural styles
+│   └── components/                  # Styles for individual UI components
+│       ├── cart.css                 # Styling for the shopping cart dropdown
+│       ├── chatbot.css              # Styling for the AI chatbot dialog
+│       ├── checkout.css             # Styling for the checkout page
+│       ├── footer.css               # Styling for the footer section
+│       ├── header.css               # Styling for the header and navigation
+│       ├── hero.css                 # Styling for the hero section
+│       ├── how-it-works.css         # Styling for the "How it works" section
+│       ├── info-window.css          # Styling for Google Maps info windows
+│       ├── popular-produce.css      # Styling for the popular produce slider
+│       ├── product-page.css         # Styling for the product listing page
+│       └── shop-ask.css             # Styling for the "Shop & Ask" section
+├── json/                            # Stores local JSON data
+│   ├── farms.json                   # Data for partnering farms (used by map and chatbot)
+│   └── produce.json                 # Data for available produce (used by product listings, popular produce slider, and chatbot)
+├── pictures/                        # Image assets
+│   ├── Images/                      # High-resolution images
+│   │   └── Landing Page/
+│   │   |    ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg # Hero image
+│   │   |    ├── nina-luong-dp06f70Eyvc-unsplash.jpg     # Shop section image
+│   │   |    └── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg # Ask section image
+|   |   |
+|   |   └── Product page/
+│   |    ├── goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg         # Red onions image
+│   |    ├── goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg         # Carrots image
+│   |    ├── lukasz-rawa-HB_MVtHVMLc-unsplash.jpg         # Oats image
+│   |    ├── matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg # Garlic image
+│   |    └── rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg     # Potatoes image
+|   |
+│   └── tinified/                    # Optimized/compressed images for web (e.g., smaller sizes for mobile or lazy loading)
+│       ├── goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg         # Red onions image
+│       ├── goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg         # Carrots image
+│       ├── lukasz-rawa-HB_MVtHVMLc-unsplash.jpg         # Oats image
+│       ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg       # Hero image (tinified)
+│       ├── matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg # Garlic image
+│       ├── nina-luong-dp06f70Eyvc-unsplash.jpg           # Shop section image (tinified)
+│       ├── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg     # Ask section image (tinified)
+│       └── rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg     # Potatoes image
+├── scripts/                         # Contains all JavaScript files
+│   ├── cart.js                      # Manages shopping cart logic (add, remove, update quantity, localStorage)
+│   ├── chatbot.js                   # Handles AI chatbot frontend logic and communication with backend
+│   ├── checkout.js                  # Logic for the checkout page, displaying cart items and form handling
+│   ├── landingpage.js               # JavaScript for the main landing page (e.g., Swiper slider, button actions)
+│   ├── map.js                       # Google Maps integration, displaying farm locations and info windows
+│   ├── produce.js                   # Logic for rendering the product listing page
+│   └── test.js                      # (Optional) JavaScript for testing purposes or early development
+├── .env.example                     # Example environment variables file (for backend API keys)
+├── .gitignore                       # Specifies intentionally untracked files to ignore by Git
+├── checkout.html                    # HTML page for the shopping cart checkout process
+├── index.html                       # Main landing page of the webshop
+├── package.json                     # Node.js project metadata and dependencies for the backend server
+├── package-lock.json                # Records the exact dependency tree created during installation
+├── products.html                    # HTML page for Browse available produce and viewing farm map
+└── server.mjs                       # Node.js backend server for handling API requests (e.g., chatbot)
+```
 
 ## Setup Instructions
 
@@ -273,3 +282,7 @@ the solution was given by chatgpt, but with several different prompts.
 - Lars Jørgen Solerød
 
 ---
+
+```
+
+```

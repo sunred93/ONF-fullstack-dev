@@ -65,6 +65,57 @@ This Project was developed for the exam of the Frontend essentials course in Osl
 
 ## Project Structure
 
+.
+├── css/ # Contains all CSS stylesheets
+│ ├── base.css # Base styles, variables, and resets
+│ ├── layout.css # Global layout and structural styles
+│ └── components/ # Styles for individual UI components
+│ ├── cart.css # Styling for the shopping cart dropdown
+│ ├── chatbot.css # Styling for the AI chatbot dialog
+│ ├── checkout.css # Styling for the checkout page
+│ ├── footer.css # Styling for the footer section
+│ ├── header.css # Styling for the header and navigation
+│ ├── hero.css # Styling for the hero section
+│ ├── how-it-works.css # Styling for the "How it works" section
+│ ├── info-window.css # Styling for Google Maps info windows
+│ ├── popular-produce.css # Styling for the popular produce slider
+│ ├── product-page.css # Styling for the product listing page
+│ └── shop-ask.css # Styling for the "Shop & Ask" section
+├── json/ # Stores local JSON data
+│ ├── farms.json # Data for partnering farms (used by map and chatbot)
+│ └── produce.json # Data for available produce (used by product listings, popular produce slider, and chatbot)
+├── pictures/ # Image assets
+│ ├── Images/ # High-resolution images
+│ │ └── Landing Page/
+│ │ ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg # Hero image
+│ │ ├── nina-luong-dp06f70Eyvc-unsplash.jpg # Shop section image
+│ │ └── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg # Ask section image
+│ └── tinified/ # Optimized/compressed images for web (e.g., smaller sizes for mobile or lazy loading)
+│ ├── goh-rhy-yan-CCxWLAx0qmk-unsplash.jpg # Red onions image
+│ ├── goh-rhy-yan-wUBhu3GXIg0-unsplash.jpg # Carrots image
+│ ├── lukasz-rawa-HB_MVtHVMLc-unsplash.jpg # Oats image
+│ ├── markus-spiske-WcLzVLbUP5g-unsplash.jpg # Hero image (tinified)
+│ ├── matthew-pilachowski-w1eAFyBLhLM-unsplash.jpg # Garlic image
+│ ├── nina-luong-dp06f70Eyvc-unsplash.jpg # Shop section image (tinified)
+│ ├── rebecca-ritchie-NWrp3FK68yE-unsplash.jpg # Ask section image (tinified)
+│ └── rodrigo-dos-reis-h3AkzboxK4Q-unsplash.jpg # Potatoes image
+├── scripts/ # Contains all JavaScript files
+│ ├── cart.js # Manages shopping cart logic (add, remove, update quantity, localStorage)
+│ ├── chatbot.js # Handles AI chatbot frontend logic and communication with backend
+│ ├── checkout.js # Logic for the checkout page, displaying cart items and form handling
+│ ├── landingpage.js # JavaScript for the main landing page (e.g., Swiper slider, button actions)
+│ ├── map.js # Google Maps integration, displaying farm locations and info windows
+│ ├── produce.js # Logic for rendering the product listing page
+│ └── test.js # (Optional) JavaScript for testing purposes or early development
+├── .env.example # Example environment variables file (for backend API keys)
+├── .gitignore # Specifies intentionally untracked files to ignore by Git
+├── checkout.html # HTML page for the shopping cart checkout process
+├── index.html # Main landing page of the webshop
+├── package.json # Node.js project metadata and dependencies for the backend server
+├── package-lock.json # Records the exact dependency tree created during installation
+├── products.html # HTML page for Browse available produce and viewing farm map
+└── server.mjs # Node.js backend server for handling API requests (e.g., chatbot)
+
 ## Setup Instructions
 
 1.  **Prerequisites:**
@@ -78,7 +129,7 @@ This Project was developed for the exam of the Frontend essentials course in Osl
 
     ```bash
     git clone https://github.com/sunred93/ONF-fullstack-dev/tree/frontend-exam
-    cd <your-project-directory>/frontend_exam
+    cd frontend_exam
     ```
 
 3.  **Install Dependencies:**
@@ -110,20 +161,9 @@ This Project was developed for the exam of the Frontend essentials course in Osl
       ```bash
       npm start
       ```
-      This should start the Node.js/Express server (typically on `http://localhost:3000` as per your `server.mjs`).
+      This should start the Node.js/Express server `http://localhost:3000` .
     - **Open the Frontend:**
       Open the `index.html` file (or `products.html`, etc.) from the `frontend_exam` folder directly in your web browser (e.g., by double-clicking or using a live server extension if you use one in VS Code). The frontend is configured to talk to the backend at `http://localhost:3000`.
-
-## Usage Guide
-
-(Explain how to use the main features of your website.)
-
-- **Navigating the Site:** Explain the header, navigation menu, and footer.
-- **Browse Products:** How to find products on the landing page and product page.
-- **Using the Shopping Cart:** How to add items, view the cart dropdown, adjust quantities, remove items, and proceed to checkout.
-- **Interacting with the Chatbot:** How to open the chat, ask questions about produce, farms, or how the site works.
-- **Using the Map:** How to view farm locations and details on the product page.
-- **Newsletter Subscription:** How to subscribe.
 
 ## AI Integration (OpenAI Chatbot)
 
@@ -137,11 +177,10 @@ This Project was developed for the exam of the Frontend essentials course in Osl
   - It cannot access real-time data or browse the internet.
   - Its memory is based on the chat history sent with each request.
 - **Potential Biases:**
-  - (Consider if any information source for the AI could have biases. For this project, it's mainly factual data you provide, so direct bias might be low, but it's good to mention you've considered it.) Example: "The information about produce and farms is provided locally and assumed to be accurate. The AI's responses are shaped by this curated data."
+  - The information about produce and farms is provided locally and assumed to be accurate. The AI's responses are shaped by this curated data.
 - **Safety and Ethical Considerations:**
   - The system prompt is designed to keep the AI focused on its role as a site assistant and to prevent it from generating off-topic or inappropriate content.
   - Users are informed it's an AI assistant.
-  - No sensitive personal information is explicitly requested or stored beyond the chat history for the session (if you implement session history beyond what's sent per request).
 
 ## Third-Party API Integration (Google Maps)
 
@@ -155,60 +194,82 @@ This Project was developed for the exam of the Frontend essentials course in Osl
 
 ## Accessibility (WCAG 2.1 Level AA)
 
-(Briefly mention key accessibility features implemented. You've already been working on this.)
-
 - Semantic HTML structure is used throughout the site.
 - ARIA attributes (`aria-label`, `aria-modal`, etc.) are used for elements like icon buttons and dialogs to improve screen reader compatibility (e.g., in `index.html`, `chatbot.js`).
 - Interactive elements are designed to be keyboard navigable (e.g., using native `<button>` and `<a>` elements).
 - Images include descriptive `alt` attributes (e.g., in `index.html`, `produce.js`).
-- Form inputs in the newsletter have placeholder text, and efforts are made to ensure they are understandable (consider adding explicit `<label>` tags or `aria-label` where placeholders are the only visual cue).
+- Form inputs in the newsletter have placeholder text.
 - Focus indicators are managed by browser defaults, but custom focus styles could be an enhancement.
-- Color contrast considerations are guided by the provided design tokens in `css/base.css`.
+- Color contrast considerations are guided by the provided figma design.
 
 ## Performance
 
 - Images on the landing page use `loading="lazy"` to improve initial load time.
 - External libraries like Swiper are loaded via CDN.
 - JavaScript files are linked at the end of the `<body>`.
-- (Mention any other specific optimizations you've made or plan to make. Note that Lighthouse testing is recommended by the requirements.)
 
 ## Development Process
 
-(Write a short narrative about your development journey. This is personal to your experience.)
+The project was developed iteratively, with an early phase focused on establishing a solid foundational structure and UI, followed by the implementation of core functionality and integrations, and then continuous improvements and refactoring.
 
-- Example: "The project was developed iteratively, starting with the main page structure and styling, followed by JavaScript functionality for the menu, cart, and dynamic content like the produce slider. The chatbot integration involved setting up a Node.js/Express backend and then connecting the frontend. The Google Maps API was added to enhance the product/farm information..."
-- Mention your branching strategy if you used one (e.g., feature branches).
+Initial Setup and Basic UI Implementation (Early April 2025):
+
+The process began with a "skeleton" for the project, focusing on fundamental HTML and CSS structure. This included early attempts at section-based work and experimenting with CSS classes for better readability and reusability.
+Core UI and Navigation (May 2025 – Early May):
+
+Development progressed with modularizing CSS stylesheets, implementing core sections like "Popular Produce" and "Footer" with their respective behaviors, and enhancing the navigation menu with a dropdown function.
+Emphasis was placed on a mobile-first architecture and organizing CSS to ensure responsive design from the outset.
+Dynamic Content and External Integrations (Mid-May 2025):
+
+Key features such as dynamic product rendering and shopping cart synchronization were implemented, along with general UI improvements.
+Google Maps was integrated to display farm locations, and handling of environment variables for API keys was set up.
+Work on responsive design and image handling, including .env file tracking, was also addressed.
+A server setup for backend functionality was introduced.
+Chatbot Integration and Carousel Functionality (Late May 2025):
+
+Chatbot functionality was implemented, including a chat widget, styling, and removal of old chat page links. Server functionality with OpenAI integration was added to power the chatbot.
+Popular products were implemented with Swiper.js for carousel display, with adjustments to adhere to design specifications.
+Further CSS refactoring and polishing of the footer were carried out.
+Improvements and Features (June 2025):
+
+The checkout page structure and styling were implemented.
+Shopping cart implementation was improved with a focus on layout and interaction controls, including dynamic updates and history management in localStorage.
+The chatbot's UI and functionality were enhanced with better history management and simplification of static file serving.
+Partnering farms data was added to chat responses.
+The checkout layout was refactored and unused utilities were removed.
+Finally, configuration and source files for the project were removed.
+This process demonstrates clear progress from initial setup and design to the implementation of complex features such as the shopping cart, map, and AI chatbot, with a continuous focus on responsiveness and user experience.
 
 ## Challenges Faced & Solutions
 
-(Describe 1-2 significant challenges and how you overcame them.)
-
-- Example Challenge 1: "Ensuring the chatbot dialog was fully responsive and correctly positioned below the sticky header on mobile required careful CSS adjustments, particularly with `position: fixed`, `height: calc(100vh - headerHeight)`, and managing padding between the dialog and its inner content container."
-- Example Challenge 2: "Integrating Google Maps with dynamic data from `farms.json` and then enriching it with the Places API involved handling asynchronous operations carefully and managing API key security considerations."
+A big challenge for me was the chatbot dialog styling, I could not make the messages scrollable and it took alot of time, effort, guidance and help to figure it out. I tried solutions given by teacher and friends working with web development, tried chatgpt, google gemini and so on. In the end I stumbled on the solution:
+"/_ “Spacer” that sits above every real message and grows,
+forcing the real messages against the bottom of #chatBox _/
+#chatBox::before {
+content: "";
+flex: 1 1 auto;
+}"
+the solution was given by chatgpt, but with several different prompts.
 
 ## Resources Used
-
-(List any significant external resources, tutorials, documentation, or tools that helped you learn or solve problems.)
 
 - MDN Web Docs (for HTML, CSS, JavaScript reference)
 - OpenAI API Documentation
 - Google Maps Platform Documentation
 - Stack Overflow (for specific troubleshooting)
 - Swiper.js Documentation
-- (Any specific articles, tutorials, or tools like Figma, Lighthouse)
-- (Your course materials/teacher for guidance)
+- figma file : AI Integrated Web Development (students)
+- chatgpt
+- gemini
 
-## Future Improvements (Optional)
+## Future Improvements
 
-(If you have ideas for what you'd do next if you had more time.)
-
-- Example: Implement a full checkout process with payment integration.
-- Example: Add user accounts and order history.
-- Example: More sophisticated client-side form validation with custom error styling.
-- Example: Unit/integration tests for JavaScript modules.
+- Implement a full checkout process with payment integration.
+- Add user accounts and order history.
+- More sophisticated client-side form validation with custom error styling.
 
 ## Author
 
-- Your Name
+- Lars Jørgen Solerød
 
 ---

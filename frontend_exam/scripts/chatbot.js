@@ -1,3 +1,5 @@
+// Initalizes the chatbot functionality, sets up all necessary variables, -
+// DOM element references, helper functions and event listeners.
 function initChat() {
   const dialog = document.getElementById("chatbot");
 
@@ -16,18 +18,32 @@ function initChat() {
   const chatBox = document.getElementById("chatBox");
   const userInput = document.getElementById("userInput");
   const sendButton = document.getElementById("sendButton");
+  const closeChatDialogBtn = document.getElementById("closeChatDialogBtn");
   const originalSendButtonHTML = sendButton.innerHTML;
-  const chatHistory = [];
+
+  let chatHistory = getChatHistoryFromLocalStorage();
+
   const backendApiConfig = {
     chatEndpoint: "http://localhost:3000/api/chat",
   };
+
+  function getChatHistoryFromLocalStorage() {
+    const history = localStorage.getItem("chatHistory");
+    return history ? JSON.parse(history) : [];
+  }
+
+  function saveChatHistoryToLocalStorage() {
+    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  }
 
   function scrollToChatBottom() {
     if (chatBox) {
       chatBox.scrollTop = chatBox.scrollHeight;
     }
   }
-  // creates message elements
+  //creates and appends a new chat message element to the chat box
+  //styles the messages based on the sender, (user or bot)
+  //displays a thinkinstate for bot messages and disables the send button
   function chatMessageElement(sender, text, thinking = false) {
     if (!chatBox) return null;
     const messageContainer = document.createElement("div");
@@ -56,29 +72,51 @@ function initChat() {
         }
       }
     }
-
+    // assembles the message
     messageContainer.appendChild(label);
     messageContainer.appendChild(bubble);
-
     bubble.textContent = text;
-
+    //displays the message
     chatBox.appendChild(messageContainer);
     scrollToChatBottom();
     return messageContainer;
   }
 
+  function loadAndDisplayChatHistory() {
+    if (chatBox.children.length === 0 && chatHistory.length > 0) {
+      chatHistory.forEach((message) => {
+        const role = message.role === "assistant" ? "bot" : message.role;
+        chatMessageElement(role, message.content, false);
+      });
+    }
+  }
+
   function openChatDialogWithGreeting() {
     if (dialog && !dialog.open) {
       dialog.showModal();
-      if (chatBox && chatBox.children.length === 0) {
+
+      if (chatBox.children.length === 0) {
+        loadAndDisplayChatHistory();
+      }
+
+      if (chatBox.children.length === 0) {
         const thinkingBubble = chatMessageElement("bot", "●●●", true);
         setTimeout(() => {
           if (thinkingBubble) thinkingBubble.remove();
-          chatMessageElement(
-            "bot",
-            "Welcome to Fram, I am your chat-bot assistant. How may I help you?",
-            false
-          );
+          const welcomeMessage =
+            "Welcome to Fram, I am your chat-bot assistant. How may I help you?";
+          chatMessageElement("bot", welcomeMessage, false);
+
+          //push to local storage the "welcome message" if empty
+          if (
+            // checking if "some" element meets the criteria
+            !chatHistory.some(
+              (m) => m.content === welcomeMessage && m.role === "assistant"
+            )
+          ) {
+            chatHistory.push({ role: "assistant", content: welcomeMessage });
+            saveChatHistoryToLocalStorage();
+          }
         }, 1000);
       }
     }
@@ -89,7 +127,8 @@ function initChat() {
       dialog.close();
     }
   }
-
+  // Sends the user's current message and chat history to the backend API,
+  // and fetches a response from the AI service.
   async function fetchReplyFromBackend(currentMessage, historyContext) {
     const payload = {
       message: currentMessage,
@@ -106,7 +145,9 @@ function initChat() {
         try {
           const errorData = await response.json();
           errorMsg = errorData.error || errorData.message || errorMsg;
-        } catch (e) {}
+        } catch (e) {
+          /* Silently ignore error from parsing the error response; main HTTP error is already captured. */
+        }
         throw new Error(errorMsg);
       }
       const data = await response.json();
@@ -117,20 +158,27 @@ function initChat() {
       throw error;
     }
   }
-
+  // Handles the submission of a user's message.
+  //It displays the user's message, sends it to the backend (along with chat history),-
+  // - displays the bot's reply, and manages chat history including saving to local storage.
   async function userMessageSubmission() {
     const userMessageText = userInput.value.trim();
     if (!userMessageText) return;
+
     chatMessageElement("user", userMessageText);
+    chatHistory.push({ role: "user", content: userMessageText });
+    saveChatHistoryToLocalStorage();
+
     userInput.value = "";
     const thinkingBubble = chatMessageElement("chat-bot", "●●●", true);
     try {
       const botReplyText = await fetchReplyFromBackend(
         userMessageText,
-        chatHistory
+        chatHistory.slice(0, -1) // userMessageText already an argument, therefore slice newest message.
       );
-      chatHistory.push({ role: "user", content: userMessageText });
       chatHistory.push({ role: "assistant", content: botReplyText });
+      saveChatHistoryToLocalStorage();
+
       if (thinkingBubble) thinkingBubble.remove();
       chatMessageElement("bot", botReplyText, false);
     } catch (error) {
@@ -140,6 +188,9 @@ function initChat() {
         `Sorry, an error occurred: ${error.message}. Please try again.`,
         false
       );
+
+      chatHistory.pop(); // if backend fails, removes new message
+      saveChatHistoryToLocalStorage();
     }
   }
 
@@ -177,6 +228,9 @@ function initChat() {
     }
     if (chatMenuItem) {
       chatMenuItem.addEventListener("click", onChatToggleClick);
+    }
+    if (closeChatDialogBtn) {
+      closeChatDialogBtn.addEventListener("click", closeChatDialogWindow);
     }
 
     if (sendButton && userInput) {

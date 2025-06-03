@@ -86,12 +86,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const itemEl = document.createElement("div");
         itemEl.className = "cart-dropdown-item";
         itemEl.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-          <div class="cart-item-details">
-            <p class="cart-item-name">${item.name}</p>
-            <p class="cart-item-price">${item.price.toFixed(2)} kr</p>
-          </div>
-          <div class="cart-item-quantity">
+         <div class="cart-item--layout">
+    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+    <div class="cart-item-details">
+      <div class="cart-iteminfo">
+        <p class="cart-item-name">${item.name}</p>
+        <p class="cart-item-price">${item.price.toFixed(2)} kr</p>
+      </div>
+      <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove ${
+          item.name
+        }">🗑️</button>
+       <div class="cart-item-quantity-controls"> 
             <button class="quantity-btn minus-btn" data-id="${
               item.id
             }" aria-label="Reduce quantity">-</button>
@@ -101,10 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="quantity-btn plus-btn" data-id="${
               item.id
             }" aria-label="Increase quantity">+</button>
-          </div>
-          <button class="remove-item-btn" data-id="${
-            item.id
-          }" aria-label="Remove ${item.name}">🗑️</button>
+        </div>
+    </div>
+  </div>
         `;
         cartDropdownListGlobal.appendChild(itemEl);
       });

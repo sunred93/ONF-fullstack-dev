@@ -1,4 +1,0 @@
-function showFacts() {
-    var factsList = document.getElementById("facts");
-    factsList.style.display = "block";
-}

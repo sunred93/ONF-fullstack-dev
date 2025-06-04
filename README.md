@@ -5,6 +5,8 @@
 FRAM is a modern sustainable food delivery webpage for ordering fresh, locally-sourced produce directly from partnering farms. It features an intuitive user interface, a smart AI chatbot assistant for customer inquiries, and seamless integration with Google Maps to showcase farm locations. The project emphasizes responsive design, accessibility, and a smooth user experience.
 This Project was developed for the exam of the Frontend essentials course in Oslo Nye Fagskole, spring 2025
 
+NOTE: frontend-exam is the main branch since it only includes the files necessary for the project.
+
 ## Table of Contents
 
 - [Features](#features)
@@ -186,7 +188,7 @@ This Project was developed for the exam of the Frontend essentials course in Osl
   - It cannot access real-time data or browse the internet.
   - Its memory is based on the chat history sent with each request.
 - **Potential Biases:**
-  - The information about produce and farms is provided locally and assumed to be accurate. The AI's responses are shaped by this curated data.
+  - The information about produce and farms is provided locally, the AI's responses are shaped by this curated data.
 - **Safety and Ethical Considerations:**
   - The system prompt is designed to keep the AI focused on its role as a site assistant and to prevent it from generating off-topic or inappropriate content.
   - Users are informed it's an AI assistant.
